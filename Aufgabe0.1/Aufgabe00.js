@@ -2,7 +2,7 @@ var aufgabe0;
 (function (aufgabe0) {
     var name = "";
     function main() {
-        var k = prompt("Gib deinen Namen ein");
+        var name = prompt("Gib deinen Namen ein");
         var node = document.getElementById("inhalt");
         node.innerHTML += "Moin ";
         node.innerHTML += name;
