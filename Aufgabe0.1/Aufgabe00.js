@@ -6,9 +6,8 @@ var aufgabe0;
         var node = document.getElementById("inhalt");
         node.innerHTML += "Moin ";
         node.innerHTML += name;
-        node.innerHTML += ", schoenen Tag.";
+        node.innerHTML += ", ich wuensche die einen schoenen Tag.";
         console.log("Moin " + name + ", ich wuensche die einen schoenen Tag.");
-        
     }
     document.addEventListener('DOMContentLoaded', main);
 })(aufgabe0 || (aufgabe0 = {}));
