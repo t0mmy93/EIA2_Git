@@ -11,3 +11,4 @@ var aufgabe0;
     }
     document.addEventListener('DOMContentLoaded', main);
 })(aufgabe0 || (aufgabe0 = {}));
+//# sourceMappingURL=Aufgabe00.js.map
