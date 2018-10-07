@@ -8,7 +8,7 @@ namespace aufgabe0 {
         node.innerHTML += "Moin ";
         node.innerHTML += name;
         node.innerHTML += ", schoenen Tag.";
-        console.log("Moin " + name + ", schoenen Tag.");
+        console.log("Moin " + name + ", ich wuensche die einen schoenen Tag.");
        
     }
 
