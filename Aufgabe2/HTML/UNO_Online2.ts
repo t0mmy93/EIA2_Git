@@ -770,13 +770,13 @@ namespace unoonline4 {
 
 
 
-    function random(_n: number): number { //Random wert von 0 bis _n
+    function random(x: number): number { //Random wert von 0 bis _n
         let randomNumber: number;
-        return Math.floor(Math.random() * Math.floor(_n)); //_n
+        return Math.floor(Math.random() * Math.floor(x)); //_n
 
 
     }
-    //____________________________    
+    //__________eine karte nachziehen_____
     function getCard(): void {
         let l: number = random(allCards.length);
         placeDiv(l);
@@ -786,28 +786,19 @@ namespace unoonline4 {
 
     }
 
-    //______________________________    
-    /*
-let i = random(allCards.length)
-    console.log(i);
-    */
-
+    //_____________________________________  
     function placeDiv(l: number): void {
         let div: HTMLDivElement = document.createElement("div");
-        // let a: number = 0;
         document.body.appendChild(div);
-
-        div.setAttribute("id", "a");                       // was kommt hie rein
-        document.getElementById("a").innerHTML += allCards[l].name;  // was kommt hier rein
+        div.setAttribute("id", "a");
+        document.getElementById("a").innerHTML += allCards[l].name;
         let s: CSSStyleDeclaration = div.style;
         s.border = "thin solid black";
         s.textAlign = "center";
         s.position = "relative";
-
         s.backgroundColor = allCards[l].color;
         s.width = 120 + "px";
         s.height = 240 + "px";
-        // s.marginLeft = a + "px";
         s.bottom = 700 + "px";
         s.borderRadius = 5 + "px";
 
@@ -858,8 +849,8 @@ let i = random(allCards.length)
             s.textAlign = "center";
             s.position = "absolute";
             s.backgroundColor = "white";
-            s.width = 70 + "px";
-            s.height = 150 + "px";
+            s.width = 141 + "px";
+            s.height = 195 + "px";
             s.right = 50 + "px";
             s.top = 20 + "px";
         }

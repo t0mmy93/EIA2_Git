@@ -557,11 +557,11 @@ var unoonline4;
     };
     // all cards 0-9 , +4 ,     
     let allCards = [zeroRed1, zeroGreen1, zeroBlue1, zeroYellow1, oneRed1, oneRed2, oneGreen1, oneGreen2, oneBlue1, oneBlue2, oneYellow1, oneYellow2, twoRed1, twoRed2, twoGreen1, twoGreen2, twoBlue1, twoBlue2, twoYellow1, twoYellow2, threeRed1, threeRed2, threeGreen1, threeGreen2, threeBlue1, threeBlue2, threeYellow1, threeYellow2, fourRed1, fourRed2, fourGreen1, fourGreen2, fourBlue1, fourBlue2, fourYellow1, fourYellow2, fiveRed1, fiveRed2, fiveGreen1, fiveGreen2, fiveBlue1, fiveBlue2, fiveYellow1, fiveYellow2, sixRed1, sixRed2, sixGreen1, sixGreen2, sixBlue1, sixBlue2, sixYellow1, sixYellow2, sevenRed1, sevenRed2, sevenGreen1, sevenGreen2, sevenBlue1, sevenBlue2, sevenYellow1, sevenYellow2, eightRed1, eightRed2, eightGreen1, eightGreen2, eightBlue1, eightBlue2, eightYellow1, eightYellow2, nineRed1, nineRed2, nineGreen1, nineGreen2, nineBlue1, nineBlue2, nineYellow1, nineYellow2, plusTwoRed1, plusTwoRed2, plusTwoGreen1, plusTwoGreen2, plusTwoBlue1, plusTwoBlue2, plusTwoYellow1, plusTwoYellow2, swapDirectionRed1, swapDirectionRed2, swapDirectionGreen1, swapDirectionGreen2, swapDirectionBlue1, swapDirectionBlue2, swapDirectionYellow1, swapDirectionYellow2, exposeRed1, exposeRed2, exposeGreen1, exposeGreen2, exposeBlue1, exposeBlue2, exposeYellow1, exposeYellow2, plusFour1, plusFour2, plusFour3, plusFour4, colorChange1, colorChange2, colorChange3, colorChange4];
-    function random(_n) {
+    function random(x) {
         let randomNumber;
-        return Math.floor(Math.random() * Math.floor(_n)); //_n
+        return Math.floor(Math.random() * Math.floor(x)); //_n
     }
-    //____________________________    
+    //__________eine karte nachziehen_____
     function getCard() {
         let l = random(allCards.length);
         placeDiv(l);
@@ -569,17 +569,12 @@ var unoonline4;
         let lenght = allCards.length;
         console.log(lenght);
     }
-    //______________________________    
-    /*
-let i = random(allCards.length)
-    console.log(i);
-    */
+    //_____________________________________  
     function placeDiv(l) {
         let div = document.createElement("div");
-        // let a: number = 0;
         document.body.appendChild(div);
-        div.setAttribute("id", "a"); // was kommt hie rein
-        document.getElementById("a").innerHTML += allCards[l].name; // was kommt hier rein
+        div.setAttribute("id", "a");
+        document.getElementById("a").innerHTML += allCards[l].name;
         let s = div.style;
         s.border = "thin solid black";
         s.textAlign = "center";
@@ -587,7 +582,6 @@ let i = random(allCards.length)
         s.backgroundColor = allCards[l].color;
         s.width = 120 + "px";
         s.height = 240 + "px";
-        // s.marginLeft = a + "px";
         s.bottom = 700 + "px";
         s.borderRadius = 5 + "px";
     }
@@ -626,8 +620,8 @@ let i = random(allCards.length)
             s.textAlign = "center";
             s.position = "absolute";
             s.backgroundColor = "white";
-            s.width = 70 + "px";
-            s.height = 150 + "px";
+            s.width = 141 + "px";
+            s.height = 195 + "px";
             s.right = 50 + "px";
             s.top = 20 + "px";
         }
