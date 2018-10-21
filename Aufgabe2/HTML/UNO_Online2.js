@@ -1,3 +1,11 @@
+/*
+Aufgabe: (Aufgabe2_Uno)
+Name: (Bommer Tom)
+Matrikel: (259510)
+Datum: (21.10.2018)
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
 var unoonline4;
 (function (unoonline4) {
     let zeroRed1 = {
@@ -555,11 +563,12 @@ var unoonline4;
         color: "#000000",
         value: 11
     };
-    // all cards 0-9 , +4 ,     
     let allCards = [zeroRed1, zeroGreen1, zeroBlue1, zeroYellow1, oneRed1, oneRed2, oneGreen1, oneGreen2, oneBlue1, oneBlue2, oneYellow1, oneYellow2, twoRed1, twoRed2, twoGreen1, twoGreen2, twoBlue1, twoBlue2, twoYellow1, twoYellow2, threeRed1, threeRed2, threeGreen1, threeGreen2, threeBlue1, threeBlue2, threeYellow1, threeYellow2, fourRed1, fourRed2, fourGreen1, fourGreen2, fourBlue1, fourBlue2, fourYellow1, fourYellow2, fiveRed1, fiveRed2, fiveGreen1, fiveGreen2, fiveBlue1, fiveBlue2, fiveYellow1, fiveYellow2, sixRed1, sixRed2, sixGreen1, sixGreen2, sixBlue1, sixBlue2, sixYellow1, sixYellow2, sevenRed1, sevenRed2, sevenGreen1, sevenGreen2, sevenBlue1, sevenBlue2, sevenYellow1, sevenYellow2, eightRed1, eightRed2, eightGreen1, eightGreen2, eightBlue1, eightBlue2, eightYellow1, eightYellow2, nineRed1, nineRed2, nineGreen1, nineGreen2, nineBlue1, nineBlue2, nineYellow1, nineYellow2, plusTwoRed1, plusTwoRed2, plusTwoGreen1, plusTwoGreen2, plusTwoBlue1, plusTwoBlue2, plusTwoYellow1, plusTwoYellow2, swapDirectionRed1, swapDirectionRed2, swapDirectionGreen1, swapDirectionGreen2, swapDirectionBlue1, swapDirectionBlue2, swapDirectionYellow1, swapDirectionYellow2, exposeRed1, exposeRed2, exposeGreen1, exposeGreen2, exposeBlue1, exposeBlue2, exposeYellow1, exposeYellow2, plusFour1, plusFour2, plusFour3, plusFour4, colorChange1, colorChange2, colorChange3, colorChange4];
+    // all cards 0-9 , +2, swapDirection, expose, +4 , colorChange
     function random(x) {
         let randomNumber;
         return Math.floor(Math.random() * Math.floor(x)); //_n
+        // erzeugt random number
     }
     //__________eine karte nachziehen_____
     function getCard() {
@@ -569,6 +578,7 @@ var unoonline4;
         let lenght = allCards.length;
         console.log(lenght);
     }
+    // lässt einem eine neue Karte nachziehen (funktioniert noch nicht)
     //_____________________________________  
     function placeDiv(l) {
         let div = document.createElement("div");
@@ -585,6 +595,7 @@ var unoonline4;
         s.bottom = 700 + "px";
         s.borderRadius = 5 + "px";
     }
+    // bestimmt den div Style 
     function main() {
         let j;
         let i = prompt("Wie viele Karten pro Spieler?");
@@ -597,7 +608,9 @@ var unoonline4;
             console.log(lenght);
             continue;
         }
-        function Stapel(_n) {
+        // main : Anzahl der Karten wird eingegeben --> randomNumber wird ezeugt -->
+        // nimmt sich zufällige karten aus dem Deck --> gibt sie als div aus --> löscht diese danach durch arry.splice 
+        function Stapel(x) {
             let div = document.createElement("div");
             document.body.appendChild(div);
             let s = div.style;
@@ -606,10 +619,11 @@ var unoonline4;
             s.backgroundColor = "#f0f0f0";
             s.width = 50 + "px";
             s.height = 130 + "px";
-            s.left = (_n + 0.5) * 20 + "px";
-            s.top = (_n + 0.5) * 10 + "px";
+            s.left = (x + 0.5) * 20 + "px";
+            s.top = (x + 0.5) * 10 + "px";
             s.borderRadius = 5 + "px";
         }
+        // erzeug einen Stapel zum ziehen neuer Karten 
         function Ablage() {
             let div = document.createElement("div");
             document.body.appendChild(div);
@@ -625,6 +639,7 @@ var unoonline4;
             s.right = 50 + "px";
             s.top = 20 + "px";
         }
+        // erzeugt ablage für die Karten
         for (let i = 0; i < 3; i++) {
             Stapel(i);
         }
@@ -632,6 +647,4 @@ var unoonline4;
     }
     document.addEventListener("DOMContentLoaded", main);
 })(unoonline4 || (unoonline4 = {}));
-//console.log(Math.floor);  
-//}
 //# sourceMappingURL=UNO_Online2.js.map
