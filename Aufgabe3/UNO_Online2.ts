@@ -18,7 +18,7 @@ namespace unoonline4 {
         let span: HTMLSpanElement = document.createElement("span");
         document.body.appendChild(span);
         span.setAttribute("id", "a" + _q);
-        document.getElementById("a" + _q).innerHTML += name;
+        span.innerHTML = name;
         let s: CSSStyleDeclaration = span.style;
         s.backgroundColor = color;
     }

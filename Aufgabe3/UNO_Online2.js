@@ -16,7 +16,7 @@ var unoonline4;
         let span = document.createElement("span");
         document.body.appendChild(span);
         span.setAttribute("id", "a" + _q);
-        document.getElementById("a" + _q).innerHTML += name;
+        span.innerHTML = name;
         let s = span.style;
         s.backgroundColor = color;
     }
