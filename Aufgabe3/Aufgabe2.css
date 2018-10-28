@@ -1,0 +1,93 @@
+header {
+	baclgound-color: white;
+	position: relative;
+	margin: 25px;
+	z-index: 3;
+}
+/*
+body {
+	background-image: url("img/tischplatte.JPG");
+	
+	
+
+}
+*/
+#background {
+	margin-top: 50px;
+	width: 100%;
+	height: auto;
+}
+
+#logo {
+	height: 133px;
+	width: 175px;
+	z-index: 2;
+	position: center;
+	margin-left: 550px;
+}
+
+body span {
+	color: white;
+	margin-top: -150px;
+	float: left;
+	margin-left: 30px;
+	margin-top: -150px;
+	border: solid black;
+	textAlign: center;
+	position: relative;
+	width: 120px;
+	height: 240px;
+	bottom: 700px;
+	borderRadius: 5px;
+}
+
+button {
+	float: left;
+	margin-top: 140px;
+}
+/*
+#Ablage {
+	background-image: url("img/Screenshot_1.png");
+}
+*/
+#cardStack {
+	color: black;
+	text-alingh: center;
+	margin-top: 5px;
+	border: thin solid black;
+	position: absolute;
+	background-color: lightgrey;
+	width: 80px;
+	height: 130px;
+	margin-top: 5px;
+	borderRadius: 5px;
+}
+
+#drawCards {
+	color: black;
+	text-alingh: center;
+	margin-top: 5px;
+	margin-left: 1400px;
+	border: thin solid black;
+	position: absolute;
+	background-color: lightgrey;
+	width: 80px;
+	height: 130px;
+	margin-top: 5px;
+	borderRadius: 5px;
+}
+
+/*
+#cardStack {
+	border = thin solid black;
+        textAlign = center;
+        position = relative;
+        
+        width = 120px;
+        height = 240px;
+        bottom = 700px;
+        borderRadius = 5px;
+	
+	
+}
+*/
