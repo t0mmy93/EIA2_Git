@@ -27,17 +27,17 @@ body {
 }
 
 body span {
-	color: white;
-	margin-top: -150px;
+	color: black;
 	float: left;
 	margin-left: 30px;
-	margin-top: -150px;
+	margin-top: -200px;
+	margin-bottom: 220px;
 	border: solid black;
 	textAlign: center;
 	position: relative;
-	width: 120px;
-	height: 240px;
-	bottom: 700px;
+	width: 100px;
+	height: 200px;
+	bottom: 500px;
 	borderRadius: 5px;
 }
 
@@ -45,11 +45,7 @@ button {
 	float: left;
 	margin-top: 140px;
 }
-/*
-#Ablage {
-	background-image: url("img/Screenshot_1.png");
-}
-*/
+
 #cardStack {
 	color: black;
 	text-alingh: center;
@@ -76,18 +72,3 @@ button {
 	margin-top: 5px;
 	borderRadius: 5px;
 }
-
-/*
-#cardStack {
-	border = thin solid black;
-        textAlign = center;
-        position = relative;
-        
-        width = 120px;
-        height = 240px;
-        bottom = 700px;
-        borderRadius = 5px;
-	
-	
-}
-*/
