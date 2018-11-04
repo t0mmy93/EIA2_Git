@@ -33,6 +33,7 @@ namespace unoonline4 {
         let s: CSSStyleDeclaration = span.style;
         s.backgroundColor = cardColor;
     }
+    
     function main(): void {
         let j: number;
         let i: string = prompt("Wie viele Karten pro Spieler?");

@@ -22,6 +22,7 @@ var unoonline4;
         "#ff0000chngDrctn", "#ff0000chngDrctn", "#00ff00chngDrctn", "#00ff00chngDrctn", "#ffff00chngDrctn", "#ffff00chngDrctn", "#0000ffchngDrctn", "#0000ffchngDrctn",
         "#585858+4", "#585858+4", "#585858+4", "#585858+4", "#585858chngClr", "#585858chngClr", "#585858chngClr", "#585858chngClr"];
     //      console.log(cardDeck.length);
+    
     function random(x) {
         return Math.floor(Math.random() * Math.floor(x));
     }
