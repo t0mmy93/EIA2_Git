@@ -3,7 +3,6 @@ header {
 	position: relative;
 	margin: 25px;
 	z-index: 3;
-	
 }
 /*
 body {
@@ -13,7 +12,7 @@ body {
 
 }
 */
-#background{
+#background {
 	margin-top: 50px;
 	width: 100%;
 	height: auto;
@@ -27,25 +26,52 @@ body {
 	margin-left: 550px;
 }
 
-
-
-#a {
-	margin-top: -150px;
+body span {
+	font-size: 150%;
+	color: black;
 	float: left;
 	margin-left: 30px;
-	
+	margin-top: -200px;
+	margin-bottom: 220px;
+	border: solid black;
+	textAlign: center;
+	position: relative;
+	width: 100px;
+	height: 200px;
+	bottom: 500px;
+	borderRadius: 5px;
 }
 
 button {
 	float: left;
 	margin-top: 140px;
-	
 }
 
-#Ablage {
-	background-image: url("img/Screenshot_1.png");
-	
-	
-	
+#cardStack {
+	font-size: 200%;
+	color: black;
+	text-alingh: center;
+	margin-top: 5px;
+	border: thin solid black;
+	position: absolute;
+	background-color: lightgrey;
+	width: 80px;
+	height: 130px;
+	margin-top: 5px;
+	borderRadius: 5px;
 }
 
+#drawCards {
+	font-size: 200%;
+	color: black;
+	text-alingh: center;
+	margin-top: 5px;
+	margin-left: 1400px;
+	border: thin solid black;
+	position: absolute;
+	background-color: lightgrey;
+	width: 80px;
+	height: 130px;
+	margin-top: 5px;
+	borderRadius: 5px;
+}
