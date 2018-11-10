@@ -30,7 +30,7 @@ var UnoOnline_A3;
     function randomNumber(x) {
         return Math.floor(Math.random() * Math.floor(x));
     }
-    function placeSpan(_cardColor, _cardName, _q) {
+    function placeDiv(_cardColor, _cardName, _q) {
         let span = document.createElement("span");
         document.body.appendChild(span);
         span.setAttribute("id", "a" + _q);
@@ -53,42 +53,12 @@ var UnoOnline_A3;
             console.log(cardColor);
             let cardName = str.substring(7, 19); // cardName wird aus dem Array gezogen
             console.log(cardName);
-            placeSpan(cardColor, cardName, randomCard);
+            placeDiv(cardColor, cardName, randomCard);
             cardDeck.splice(randomCard - 1, 1); // Element wird aus dem Array gelöscht
             console.log(cardDeck.length);
             handCards.push(str);
             console.log(handCards);
         }
-        /*
-        
-        
-        function pressKeyboard(_event: KeyboardEvent): void {
-        if (_event.keyCode == 32) {
-            pullFromNachziehstapel();
-        }
-    }
-        
-         function pullFromReserve   (): void {
-        randomCard(1);
-        main();
-
-    }
-      */
-        function sortCards() {
-            handCards.sort();
-        }
-        /*
-        
-                      function input(): void {
-                          let button: HTMLElement = document.getElementById("button");
-                           button.addEventListener("click", sortCards);
-        
-                            let pull: HTMLElement = document.getElementById("Nachziehstapel");
-                           pull.Listener("click", pumNa);
-        
-        
-                  }
-        */
     }
 })(UnoOnline_A3 || (UnoOnline_A3 = {}));
 //# sourceMappingURL=UNO_Online3.js.map

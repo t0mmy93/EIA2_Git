@@ -34,11 +34,11 @@ namespace UnoOnline_A3 {
         return Math.floor(Math.random() * Math.floor(x));
     }
     function placeDiv(_cardColor: string, _cardName: string, _q: number): void {
-        let div: HTMLDivElement = document.createElement("Div");
-        document.body.appendChild(div);
-        div.setAttribute("id", "a" + _q);
-        div.innerHTML = _cardName;
-        let s: CSSStyleDeclaration = div.style;
+        let span: HTMLSpanElement = document.createElement("span");
+        document.body.appendChild(span);
+        span.setAttribute("id", "a" + _q);
+        span.innerHTML = _cardName;
+        let s: CSSStyleDeclaration = span.style;
         s.backgroundColor = _cardColor;
     }
 
