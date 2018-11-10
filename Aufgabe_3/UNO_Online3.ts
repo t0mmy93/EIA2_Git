@@ -8,6 +8,9 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 namespace UnoOnline_A3 {
     document.addEventListener("DOMContentLoaded", main);
+    //  document.addEventListener("DOMContentLoaded", input);
+    //  document.addEventListener("keydown", pressSpacebar);
+
 
     let cardDeck: string[] = [
         "#ff00000", "#ff00001", "#ff00002", "#ff00003", "#ff00004", "#ff00005", "#ff00006", "#ff00007", "#ff00008", "#ff00009",                                         // 0-9
@@ -25,17 +28,17 @@ namespace UnoOnline_A3 {
         "#585858chngClr", "#585858chngClr", "#585858chngClr", "#585858chngClr"];                                                                                       // change Color
     //      console.log(cardDeck.length);
 
-    let handCards: string[];
+    let handCards: string[] = [ ];
 
     function randomNumber(x: number): number {
         return Math.floor(Math.random() * Math.floor(x));
     }
-    function placeSpan(_cardColor: string, _cardName: string, _q: number): void {
-        let span: HTMLSpanElement = document.createElement("span");
-        document.body.appendChild(span);
-        span.setAttribute("id", "a" + _q);
-        span.innerHTML = _cardName;
-        let s: CSSStyleDeclaration = span.style;
+    function placeDiv(_cardColor: string, _cardName: string, _q: number): void {
+        let div: HTMLDivElement = document.createElement("Div");
+        document.body.appendChild(div);
+        div.setAttribute("id", "a" + _q);
+        div.innerHTML = _cardName;
+        let s: CSSStyleDeclaration = div.style;
         s.backgroundColor = _cardColor;
     }
 
@@ -51,37 +54,22 @@ namespace UnoOnline_A3 {
         cardsPulled = Number(cardsToPull);
         for (let i: number = 0; cardsPulled > i; i++) {
             let randomCard: number = randomNumber(cardDeck.length);
-            
+
             let str: string = cardDeck[randomCard];
             let cardColor: string = str.substring(0, 7);                        // Farbcode wird aus dem Array gezogen
             console.log(cardColor);
             let cardName: string = str.substring(7, 19);                        // cardName wird aus dem Array gezogen
             console.log(cardName);
 
-            placeSpan(cardColor, cardName, randomCard);
+            placeDiv(cardColor, cardName, randomCard);
             cardDeck.splice(randomCard - 1, 1);                             // Element wird aus dem Array gelöscht
             console.log(cardDeck.length);
             handCards.push(str);
             console.log(handCards);
         }
 
-        //        function sortCards(): void {
-        //            handCards.sort();
-        //        }
 
 
 
-        //        function input(): void {
-        //            let button: HTMLElement = document.getElementById("button");
-        //            button.addEventListener("click", sortCards);
-
-        //             let pull: HTMLElement = document.getElementById("Nachziehstapel");
-        //             pull.Listener("click", pumNa); 
-
-
-        //  }
-
-
-
+        }
     }
-}

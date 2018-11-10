@@ -9,6 +9,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 var UnoOnline_A3;
 (function (UnoOnline_A3) {
     document.addEventListener("DOMContentLoaded", main);
+    //  document.addEventListener("DOMContentLoaded", input);
+    //  document.addEventListener("keydown", pressSpacebar);
     let cardDeck = [
         "#ff00000", "#ff00001", "#ff00002", "#ff00003", "#ff00004", "#ff00005", "#ff00006", "#ff00007", "#ff00008", "#ff00009",
         "#00ff000", "#00ff001", "#00ff002", "#00ff003", "#00ff004", "#00ff005", "#00ff006", "#00ff007", "#00ff008", "#00ff009",
@@ -24,7 +26,7 @@ var UnoOnline_A3;
         "#585858+4", "#585858+4", "#585858+4", "#585858+4",
         "#585858chngClr", "#585858chngClr", "#585858chngClr", "#585858chngClr"]; // change Color
     //      console.log(cardDeck.length);
-    let handCards;
+    let handCards = [];
     function randomNumber(x) {
         return Math.floor(Math.random() * Math.floor(x));
     }
@@ -57,15 +59,36 @@ var UnoOnline_A3;
             handCards.push(str);
             console.log(handCards);
         }
-        //        function sortCards(): void {
-        //            handCards.sort();
-        //        }
-        //        function input(): void {
-        //            let button: HTMLElement = document.getElementById("button");
-        //            button.addEventListener("click", sortCards);
-        //             let pull: HTMLElement = document.getElementById("Nachziehstapel");
-        //             pull.Listener("click", pumNa); 
-        //  }
+        /*
+        
+        
+        function pressKeyboard(_event: KeyboardEvent): void {
+        if (_event.keyCode == 32) {
+            pullFromNachziehstapel();
+        }
+    }
+        
+         function pullFromReserve   (): void {
+        randomCard(1);
+        main();
+
+    }
+      */
+        function sortCards() {
+            handCards.sort();
+        }
+        /*
+        
+                      function input(): void {
+                          let button: HTMLElement = document.getElementById("button");
+                           button.addEventListener("click", sortCards);
+        
+                            let pull: HTMLElement = document.getElementById("Nachziehstapel");
+                           pull.Listener("click", pumNa);
+        
+        
+                  }
+        */
     }
 })(UnoOnline_A3 || (UnoOnline_A3 = {}));
 //# sourceMappingURL=UNO_Online3.js.map
