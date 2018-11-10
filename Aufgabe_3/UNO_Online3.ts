@@ -51,6 +51,7 @@ namespace UnoOnline_A3 {
         cardsPulled = Number(cardsToPull);
         for (let i: number = 0; cardsPulled > i; i++) {
             let randomCard: number = randomNumber(cardDeck.length);
+            
             let str: string = cardDeck[randomCard];
             let cardColor: string = str.substring(0, 7);                        // Farbcode wird aus dem Array gezogen
             console.log(cardColor);
@@ -60,23 +61,25 @@ namespace UnoOnline_A3 {
             placeSpan(cardColor, cardName, randomCard);
             cardDeck.splice(randomCard - 1, 1);                             // Element wird aus dem Array gelöscht
             console.log(cardDeck.length);
-            //        addCardsToArray(cardColor, cardName);
-         }
-
-        function sortCards(): void {
-            handCards.sort();
+            handCards.push(str);
+            console.log(handCards);
         }
 
+        //        function sortCards(): void {
+        //            handCards.sort();
+        //        }
 
 
-        function input(): void {
-            let button: HTMLElement = document.getElementById("button");
-            button.addEventListener("click", sortCards);
 
-            
-            
+        //        function input(): void {
+        //            let button: HTMLElement = document.getElementById("button");
+        //            button.addEventListener("click", sortCards);
 
-        }
+        //             let pull: HTMLElement = document.getElementById("Nachziehstapel");
+        //             pull.Listener("click", pumNa); 
+
+
+        //  }
 
 
 

@@ -54,14 +54,18 @@ var UnoOnline_A3;
             placeSpan(cardColor, cardName, randomCard);
             cardDeck.splice(randomCard - 1, 1); // Element wird aus dem Array gelöscht
             console.log(cardDeck.length);
+            handCards.push(str);
+            console.log(handCards);
         }
-        function sortCards() {
-            handCards.sort();
-        }
-        function input() {
-            let button = document.getElementById("button");
-            button.addEventListener("click", sortCards);
-        }
+        //        function sortCards(): void {
+        //            handCards.sort();
+        //        }
+        //        function input(): void {
+        //            let button: HTMLElement = document.getElementById("button");
+        //            button.addEventListener("click", sortCards);
+        //             let pull: HTMLElement = document.getElementById("Nachziehstapel");
+        //             pull.Listener("click", pumNa); 
+        //  }
     }
 })(UnoOnline_A3 || (UnoOnline_A3 = {}));
 //# sourceMappingURL=UNO_Online3.js.map
