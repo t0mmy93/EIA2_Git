@@ -39,12 +39,10 @@ namespace UnoOnline_A3 {
         s.backgroundColor = _cardColor;
     }
 
-    function addCardsToArray(_cardColor: string, _cardValue: string): void {
-        handCards.push(_cardColor, _cardValue);
-
-
-        //    document.getElementById("demo").innerHTML = fruits;
-    }
+    //    function addCardsToArray(_cardColor: string, _cardValue: string): void {
+    //        handCards.push(_cardColor, _cardValue);
+    //    document.getElementById("demo").innerHTML = fruits;
+    //    }
 
 
     function main(): void {
@@ -62,11 +60,24 @@ namespace UnoOnline_A3 {
             placeSpan(cardColor, cardName, randomCard);
             cardDeck.splice(randomCard - 1, 1);                             // Element wird aus dem Array gelöscht
             console.log(cardDeck.length);
+            //        addCardsToArray(cardColor, cardName);
+         }
 
-            addCardsToArray(cardColor, cardName);
+        function sortCards(): void {
+            handCards.sort();
+        }
 
 
-         }
+
+        function input(): void {
+            let button: HTMLElement = document.getElementById("button");
+            button.addEventListener("click", sortCards);
+
+            
+            
+
+        }
+
 
 
     }

@@ -1,4 +1,3 @@
-
 /*
 Aufgabe: (Aufgabe2_Uno)
 cardName: (Bommer Tom)
@@ -37,10 +36,10 @@ var UnoOnline_A3;
         let s = span.style;
         s.backgroundColor = _cardColor;
     }
-    function addCardsToArray(_cardColor, _cardValue) {
-        handCards.push(_cardColor, _cardValue);
-        //    document.getElementById("demo").innerHTML = fruits;
-    }
+    //    function addCardsToArray(_cardColor: string, _cardValue: string): void {
+    //        handCards.push(_cardColor, _cardValue);
+    //    document.getElementById("demo").innerHTML = fruits;
+    //    }
     function main() {
         let cardsPulled;
         let cardsToPull = prompt("Wie viele Karten pro Spieler?");
@@ -55,7 +54,13 @@ var UnoOnline_A3;
             placeSpan(cardColor, cardName, randomCard);
             cardDeck.splice(randomCard - 1, 1); // Element wird aus dem Array gelöscht
             console.log(cardDeck.length);
-            addCardsToArray(cardColor, cardName);
+        }
+        function sortCards() {
+            handCards.sort();
+        }
+        function input() {
+            let button = document.getElementById("button");
+            button.addEventListener("click", sortCards);
         }
     }
 })(UnoOnline_A3 || (UnoOnline_A3 = {}));
