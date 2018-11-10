@@ -66,8 +66,7 @@ namespace UnoOnline_A3 {
             addCardsToArray(cardColor, cardName);
 
 
-
-         }
+         }
 
 
     }
