@@ -1,4 +1,4 @@
-header {
+head {
 	baclgound-color: white;
 	position: relative;
 	margin: 25px;
@@ -27,16 +27,15 @@ body {
 	margin-left: 550px;
 }
 
-body span {
+#Hand div {
 	font-size: 150%;
 	color: black;
 	float: left;
 	margin-left: 30px;
-	margin-top: -200px;
-	margin-bottom: 220px;
+	margin-top: 350px;
+	margin-bottom: 0px;
 	border: solid black;
 	textAlign: center;
-	position: relative;
 	width: 100px;
 	height: 200px;
 	bottom: 500px;
@@ -48,8 +47,7 @@ button {
 	margin-top: 140px;
 }
 
-
-#cardStack {
+#draw {
 	font-size: 200%;
 	color: black;
 	text-alingh: center;
@@ -63,7 +61,7 @@ button {
 	borderRadius: 5px;
 }
 
-#drawCards {
+#Stack {
 	font-size: 200%;
 	color: black;
 	text-alingh: center;
