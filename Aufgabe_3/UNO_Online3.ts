@@ -24,6 +24,7 @@ namespace UnoOnline_A3 {
   */
 
 
+    
 
 
 
@@ -83,7 +84,7 @@ namespace UnoOnline_A3 {
             cardDeck.splice(randomCard - 1, 1);                             // Element wird aus dem Array gelöscht
             console.log(cardDeck.length);
             handCards.push(str);
-      //      handCards.sort();
+            handCards.sort();
 
         }
     }
