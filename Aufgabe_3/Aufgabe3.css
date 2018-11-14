@@ -32,13 +32,13 @@ body {
 	color: black;
 	float: left;
 	margin-left: 30px;
-	margin-top: 350px;
+	margin-top: 250px;
 	margin-bottom: 0px;
 	border: solid black;
 	textAlign: center;
 	width: 100px;
 	height: 200px;
-	bottom: 500px;
+	bottom: 200px;
 	borderRadius: 5px;
 }
 
@@ -55,8 +55,8 @@ button {
 	border: thin solid black;
 	position: absolute;
 	background-color: lightgrey;
-	width: 80px;
-	height: 130px;
+	width: 100px;
+	height: 200px;
 	margin-top: 5px;
 	borderRadius: 5px;
 }
@@ -70,8 +70,10 @@ button {
 	border: thin solid black;
 	position: absolute;
 	background-color: lightgrey;
-	width: 80px;
-	height: 130px;
+	width: 100px;
+	height: 200px;
 	margin-top: 5px;
+	margin-bottom: 120px;
 	borderRadius: 5px;
 }
+
