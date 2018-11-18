@@ -1,0 +1,19 @@
+fieldset {
+	width: 25%;
+	margin-top: 5px;
+}
+
+#Warenkorb {
+	width: 50%;
+	float: right;
+	borderstyle: solid;
+	background-color: lightgrey;
+	width: 500px;
+	height: 500px;
+}
+
+#Stepper {
+	width: 10%;
+	
+	
+}
