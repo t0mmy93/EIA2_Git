@@ -1,5 +1,6 @@
 var Aufgabe_5;
 (function (Aufgabe_5) {
+    Aufgabe_5.cart = [];
     Aufgabe_5.data = {
         "Dekoration": [
             { name: "Kerzen", price: 0.99, color: ["rot", "blau", "gold", "Supreme", "Gucci"], inputType: "checkbox", stepper: true },
