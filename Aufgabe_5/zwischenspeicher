@@ -312,5 +312,114 @@ namespace Aufgabe_5 {
 
 
 
+// 4
 
+ function displayProducts(_products: Products, _categoryName: string, _value: number): void {
+        //  console.log("gg", _value );
+        let fieldset: HTMLFieldSetElement = document.createElement("fieldset");
+        let legend: HTMLLegendElement = document.createElement("legend");
+        let label: HTMLLabelElement = document.createElement("label");
+        let input: HTMLInputElement = document.createElement("input");
+        console.log("_products " + _products + " _categoryName " + _categoryName + " _value " + _value);
+        /*
+                function getColors(_dekorationIndex: number): void {
+                    for (let i: number = 0; i < data["Dekoration"][_dekorationIndex].color[i].length; i++) {
+                        let colorName: string = data["Dekoration"][_dekorationIndex].color[i];
+                        console.log("color " + data["Dekoration"][_dekorationIndex].color[i].length);
+                        label.innerText = colorName;
+                    }
+                    
+          }
+             
+           function getColors2(_arrayNumber: number): void {
+        for (let j: number = 0; j < data["Dekoration"][_arrayNumber].name.length; j++) { // 2
+            label.innerText = data["Dekoration"][_arrayNumber].color[1];
+            label.appendChild(document.createElement("br"));
+
+            label.setAttribute("type", _products.inputType);
+            label.setAttribute("id", _products.color.toString());
+            document.getElementById(data["Dekoration"][_arrayNumber].name + " legend").appendChild(label);
+        }
+    }
+        
+        */
+        function getColors2(_arrayIndex: number): void {
+            //    console.log(_arrayIndex + "ARAAYNUMMER");
+            for (let i: number = 0; i < data["Dekoration"][_arrayIndex].color.length; i++) {
+                let innerLabel: HTMLLabelElement = document.createElement("label");
+           //     console.log(data["Dekoration"][_arrayIndex].color[0] + " FARBE");
+                innerLabel.innerText = data["Dekoration"][_arrayIndex].color[i];
+                innerLabel.appendChild(document.createElement("br"));
+                innerLabel.setAttribute("type", _products.inputType);
+                innerLabel.setAttribute("id", _products.color.toString());
+                document.getElementById(data["Dekoration"][_arrayIndex].name + " legend").appendChild(innerLabel);
+            }
+        }
+
+
+
+        if (_categoryName == "Dekoration") {
+
+            console.log(_products.name, "cecec");
+            input.classList.add("class", _products.name);
+            input.classList.add("formelements");
+            input.setAttribute("type", _products.inputType);
+
+            fieldset.setAttribute("id", _products.name + " fieldset");
+            document.getElementById("div[0]").appendChild(fieldset);
+
+            legend.innerText = _products.name.toString();
+            legend.appendChild(document.createElement("br"));
+            legend.setAttribute("id", _products.name + " legend");
+
+            document.getElementById(_products.name + " fieldset").appendChild(legend);
+            input.setAttribute("id", _products.name + " input");
+            document.getElementById(_products.name + " legend").appendChild(input);
+
+            for (let i: number = 0; i < data["Dekoration"].length; i++) {       // 1 
+                //      console.log(data["Dekoration"].length + " Dekoration laenge");
+                getColors2(0);
+                console.log(data["Dekoration"][i].name);
+                //            getColors2(0);
+                //            getColors2(1);
+                //            getColors2(2);
+                //            getColors2(3);
+                //            getColors2(4);
+                //            getColors2(5);
+                //            getColors2(6);
+                //            getColors2(7);
+
+
+
+
+            }
+        }
+
+
+        else {
+
+            input.classList.add("class", _products.name);
+            input.classList.add("formelements");
+            input.setAttribute("type", _products.inputType);
+            fieldset.setAttribute("id", _products.name);
+            document.getElementById("div[0]").appendChild(fieldset);
+            legend.innerText = _products.name.toString();
+            document.getElementById(_products.name).appendChild(legend);
+
+            document.getElementById(_products.name).appendChild(input);
+
+
+            fieldset.innerText = _products.name.toString();
+            for (let i: number = 0; i < _value; i++) {
+                let color: string = _products.color[i];
+                label.innerText = color;
+                label.setAttribute("type", _products.inputType);
+                document.getElementById(_products.name).appendChild(label);
+                label.appendChild(document.createElement("br"));
+            }
+
+        }
+        //   }
+
+    }
 
