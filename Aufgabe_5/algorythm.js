@@ -1,28 +1,27 @@
 var Aufgabe_5;
 (function (Aufgabe_5) {
-    //   console.log(data["Dekoration"][0].color[0]);
     document.addEventListener("DOMContentLoaded", init);
-    // console.log("1 " + data);
     function init(_event) {
         displayProdctsCategories(Aufgabe_5.data);
         document.addEventListener("click", handleClick);
     }
     function handleClick(_event) {
         let target = _event.target;
-        //   let stepper : HTMLInputElement = <HTMLInputElement>document.getElementsByClassName("inputs");
-        let price = parseFloat(target.getAttribute("price"));
+        let price = target.getAttribute("price");
         let name = target.getAttribute("productname");
-        let amount = parseFloat(target.value);
-        console.log("CHECKED  ", amount);
-        //  let targetCheck: boolean = target.checked;
+        console.log(parseFloat(target.value));
+        let amount = parseInt(target.value);
+        let stepper = target.getAttribute("stepper");
+        console.log("NAME  ", name);
+        console.log("Stepperwert  ", amount);
+        console.log("PRICE  ", price);
         if (amount == 0) {
-            displayCart(name, price, 1);
+            displayCart(name, price, 1, stepper);
         }
         else {
-            displayCart(name, price, amount);
+            displayCart(name, price, amount, stepper);
         }
     }
-    // display Product    
     function displayProdctsCategories(_productCategories) {
         for (let categories in _productCategories) {
             let value = _productCategories[categories];
@@ -30,8 +29,6 @@ var Aufgabe_5;
             console.dir(value);
             console.groupEnd();
             console.log(categories + " categories");
-            // let div: HTMLElement = document.getElementById("div[" + i + "]");
-            //document.body.appendChild(div);
             let form = document.createElement("form");
             let div0 = document.createElement("div");
             let div1 = document.createElement("div");
@@ -46,15 +43,12 @@ var Aufgabe_5;
             displayProducts(categories, value.length);
         }
     }
-    // NEW FUCNTI    
     function displayProducts(_categoryName, _anzahlInhalte) {
-        console.log("Name " + _categoryName + " Inhaltelaenge " + _anzahlInhalte);
         if (_categoryName == "Baumarten") {
             for (let i = 0; i < _anzahlInhalte; i++) {
                 let nameForId = Aufgabe_5.data[_categoryName][i].name + " Preis: " + Aufgabe_5.data[_categoryName][i].price.toString();
                 // fieldsets
                 let fieldset = document.createElement("fieldset");
-                console.log("i Index " + i);
                 fieldset.innerText = nameForId;
                 fieldset.setAttribute("id", nameForId);
                 document.getElementById(_categoryName).appendChild(fieldset);
@@ -67,6 +61,7 @@ var Aufgabe_5;
                     input.setAttribute("id", Aufgabe_5.data[_categoryName][i].name + " " + i);
                     input.setAttribute("price", Aufgabe_5.data[_categoryName][i].price.toString());
                     input.setAttribute("name", "rdiobutton");
+                    input.setAttribute("stepper", Aufgabe_5.data["Baumarten"][i].stepper.toString());
                     input.setAttribute("productName", Aufgabe_5.data[_categoryName][i].name + " Groesse: " + Aufgabe_5.data[_categoryName][i].color[j]);
                     let label = document.createElement("label");
                     label.setAttribute("id", Aufgabe_5.data[_categoryName][i].name + " " + i);
@@ -80,7 +75,6 @@ var Aufgabe_5;
                 let nameForId = Aufgabe_5.data[_categoryName][i].name + " Preis: " + Aufgabe_5.data[_categoryName][i].price.toString();
                 // fieldsets
                 let fieldset = document.createElement("fieldset");
-                //                console.log("i Index " + i);
                 fieldset.innerText = nameForId;
                 fieldset.setAttribute("id", nameForId);
                 document.getElementById(_categoryName).appendChild(fieldset);
@@ -90,10 +84,12 @@ var Aufgabe_5;
                     document.getElementById(_categoryName).appendChild(input);
                     input.appendChild(document.createElement("br"));
                     input.setAttribute("type", Aufgabe_5.data[_categoryName][i].inputType);
+                    input.setAttribute("name", "inputs");
                     input.setAttribute("class", "inputs");
                     input.setAttribute("id", Aufgabe_5.data[_categoryName][i].name + " " + j);
                     input.setAttribute("price", Aufgabe_5.data[_categoryName][i].price.toString());
                     input.setAttribute("productName", Aufgabe_5.data[_categoryName][i].name + " Farbe: " + Aufgabe_5.data[_categoryName][i].color[j]);
+                    input.setAttribute("stepper", Aufgabe_5.data["Dekoration"][i].stepper.toString());
                     let label = document.createElement("label");
                     label.setAttribute("id", Aufgabe_5.data[_categoryName][i].name + " " + j);
                     label.innerText = Aufgabe_5.data[_categoryName][i].color[j];
@@ -101,29 +97,27 @@ var Aufgabe_5;
                     if (Aufgabe_5.data["Dekoration"][i].stepper == true) {
                         let stepper = document.createElement("input");
                         document.getElementById("Dekoration").appendChild(stepper);
+                        stepper.setAttribute("price", Aufgabe_5.data["Dekoration"][i].price.toString());
                         stepper.setAttribute("type", "number");
+                        stepper.setAttribute("value", "0");
                         stepper.setAttribute("min", "0");
                         stepper.setAttribute("id", Aufgabe_5.data[_categoryName][i].name + " " + j); //nameForId + i.toString()
+                        stepper.setAttribute("name", Aufgabe_5.data[_categoryName][i].name); //nameForId + i.toString()
                     }
                 }
             }
         }
     }
-    function displayCart(_productName, _productPrice, _productAmount /*, _productChecked: boolean*/) {
-        //    let divCart: HTMLDivElement = document.createElement("div");
-        //    divCart.innerHTML = ("Warenkorb");
-        //    divCart.setAttribute("id", "Warenkorb");
-        console.log("Produktname:  ", _productName);
+    function displayCart(_productName, _productPrice, _productAmount, _productChecked) {
         let list = document.createElement("li");
         document.getElementById("cart").appendChild(list);
-        console.log("displayCart:  " + _productName + "  " + _productPrice);
-        //  if ( )
-        if (_productAmount == 1) {
-            list.innerHTML = _productName + "  Preis  " + _productPrice;
+        console.log("displayCartFunction:  " + _productName + "  " + parseFloat(_productPrice));
+        if (_productChecked == "false") {
+            list.innerHTML = _productName + "  Preis  " + parseFloat(_productPrice);
         }
         else {
-            let newPrice = (_productPrice * _productAmount);
-            console.log("NEW PRICE    ", newPrice);
+            let newPrice = (parseFloat(_productPrice) * _productAmount);
+            console.log("NEW PRICE    ", _productName);
             list.innerHTML = _productName + "  Preis  " + newPrice;
         }
     }
