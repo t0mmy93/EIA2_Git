@@ -7,7 +7,7 @@ namespace Aufgabe_5 {
     function handleClick(_event: MouseEvent): void {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
         let price: string = target.getAttribute("price");
-        let name: string = target.getAttribute("productname");
+        let name: string = target.getAttribute("productName");
         console.log(parseFloat(target.value));
         let amount: number = parseInt(target.value);
         let stepper: string = target.getAttribute("stepper");
@@ -33,10 +33,10 @@ namespace Aufgabe_5 {
             console.groupEnd();
             console.log(categories + " categories");
 
-            let form: HTMLFormElement = document.createElement("form");
+            let form: HTMLElement = document.getElementById("form");
             let div0: HTMLDivElement = document.createElement("div");
             let div1: HTMLDivElement = document.createElement("div");
-            form.setAttribute("id", "form");
+        //    form.setAttribute("id", "form");
             div0.innerHTML = ("Baumarten");
             div1.innerHTML = ("Dekoration");
             document.body.appendChild(form); // form Element für Aufgabe 6
@@ -68,7 +68,7 @@ namespace Aufgabe_5 {
                     input.setAttribute("class", "inputs");
                     input.setAttribute("id", data[_categoryName][i].name + " " + i);
                     input.setAttribute("price", data[_categoryName][i].price.toString());
-                    input.setAttribute("name", "rdiobutton");
+                    input.setAttribute("name", "data[_categoryName][i].name");
                     input.setAttribute("stepper", data["Baumarten"][i].stepper.toString());
                     input.setAttribute("productName", data[_categoryName][i].name + " Groesse: " + data[_categoryName][i].color[j]);
 
@@ -89,17 +89,17 @@ namespace Aufgabe_5 {
                 document.getElementById(_categoryName).appendChild(fieldset);
                 // legends
                 for (let j: number = 0; j < data[_categoryName][i].color.length; j++) {
-                    let input: HTMLInputElement = document.createElement("input");
+                    //      let input: HTMLInputElement = document.createElement("input");
 
-                    document.getElementById(_categoryName).appendChild(input);
-                    input.appendChild(document.createElement("br"));
-                    input.setAttribute("type", data[_categoryName][i].inputType);
-                    input.setAttribute("name", "inputs");
-                    input.setAttribute("class", "inputs");
-                    input.setAttribute("id", data[_categoryName][i].name + " " + j);
-                    input.setAttribute("price", data[_categoryName][i].price.toString());
-                    input.setAttribute("productName", data[_categoryName][i].name + " Farbe: " + data[_categoryName][i].color[j]);
-                    input.setAttribute("stepper", data["Dekoration"][i].stepper.toString());
+                    //                    document.getElementById(_categoryName).appendChild(input);
+                    //                    input.appendChild(document.createElement("br"));
+                    //                    input.setAttribute("type", data[_categoryName][i].inputType);
+                    //                    input.setAttribute("name", "inputs");
+                    //                    input.setAttribute("class", "inputs");
+                    //                    input.setAttribute("id", data[_categoryName][i].name + " " + j);
+                    //                    input.setAttribute("price", data[_categoryName][i].price.toString());
+                    //                    input.setAttribute("productName", data[_categoryName][i].name + " Farbe: " + data[_categoryName][i].color[j]);
+                    //                    input.setAttribute("stepper", data["Dekoration"][i].stepper.toString());
 
                     let label: HTMLLabelElement = document.createElement("label");
                     label.setAttribute("id", data[_categoryName][i].name + " " + j);
@@ -110,11 +110,13 @@ namespace Aufgabe_5 {
                         let stepper: HTMLInputElement = document.createElement("input");
                         document.getElementById("Dekoration").appendChild(stepper);
                         stepper.setAttribute("price", data["Dekoration"][i].price.toString());
+                        stepper.setAttribute("productName", data["Dekoration"][i].name.toString() + " " + data["Dekoration"][i].color[j]);
+                        stepper.setAttribute("name", "stepper");
                         stepper.setAttribute("type", "number");
                         stepper.setAttribute("value", "0");
                         stepper.setAttribute("min", "0");
                         stepper.setAttribute("id", data[_categoryName][i].name + " " + j);    //nameForId + i.toString()
-                        stepper.setAttribute("name", data[_categoryName][i].name);    //nameForId + i.toString()
+                        //nameForId + i.toString()
                     }
                 }
             }
