@@ -1,0 +1,425 @@
+namespace Aufgabe_5 {
+
+    document.addEventListener("DOMContentLoaded", init);
+
+    function init(_event: Event): void {
+        //  console.log(data);
+        displayProdctsCategories(data);
+        document.addEventListener("click", handleClick);
+    }
+
+    //   console.log(data.keys);
+    function displayCategorySelection(): void {
+        for (let i: number = 0; i < Object.keys(data).length; i++) {
+            let div: HTMLElement = document.createElement("div");
+            div.setAttribute("id", "div[" + i + "]");
+
+            document.body.appendChild(div);
+        }
+
+    }
+
+
+    // display Product    
+    function displayProdctsCategories(_productCategories: ProductCategories): void {
+
+        for (let categories in _productCategories) {
+            let value: Products[] = _productCategories[categories];
+            displayCategorySelection();
+            console.group(categories);
+            console.dir(value);
+            console.groupEnd();
+
+
+            for (let i: number = 0; i < value.length; i++) {
+                //        let div: HTMLElement = document.createElement("div");
+                //     div.setAttribute("id", "div" + (Object.keys(data).lenght));
+                let div: HTMLElement = document.getElementById("div[" + i + "]");
+                div.innerText = (categories.toString());
+                div.setAttribute("id", categories);
+                document.body.appendChild(div);
+                displayProducts(value[i], categories, div.toString());
+                console.log(div);
+            }
+        }
+    }
+
+    function displayProducts(_products: Products, _categoryName: string, _divName: string): void {
+        let fieldset: HTMLFieldSetElement = document.createElement("fieldset");
+        //   let input: HTMLFieldSetElement = document.createElement("input");
+        let legend: HTMLLegendElement = document.createElement("legend");
+        //     document.getElementById("div[1]").appendChild(fieldset);
+        let categoryDiv: HTMLElement = document.getElementById("div[1]");
+        let inputType: string = _products.inputType;
+        categoryDiv.appendChild(fieldset);
+        legend.innerText = _products.name.toString();
+        fieldset.setAttribute("type", inputType);
+        fieldset.setAttribute("price", _products.price.toString());
+        fieldset.setAttribute("price", _products.stepper.toString());
+
+        fieldset.appendChild(legend);
+
+        if (_products.stepper == true) {
+            let fieldStepper: HTMLLabelElement = document.createElement("label");
+            fieldStepper.setAttribute("id-stepper", _divName);
+            fieldStepper.setAttribute("type", "number");
+        }
+    }
+
+    function handleClick(_event: MouseEvent): void {
+        let target: HTMLElement = <HTMLElement>_event.target;
+        if (target.tagName != "fieldset")
+            alert(target.getAttribute("result"));
+    }
+
+
+
+    function caltCart(_event: Event): void {
+        let target: HTMLInputElement = <HTMLInputElement>_event.target;
+        let i: number = 0;
+        let divId: HTMLElement = document.getElementById("id-stepper div[" + i + "]")
+        console.log(target.value);
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+}
+// 2
+
+namespace Aufgabe_5 {
+
+    document.addEventListener("DOMContentLoaded", init);
+
+    function init(_event: Event): void {
+        console.log(data);
+        displayProdctsCategories(data);
+        document.addEventListener("click", handleClick);
+    }
+
+    console.log(Object.keys(data).length);
+    function placeDiv(): void {
+        for (let i: number = 0; i < Object.keys(data).length; i++) {
+            let div: HTMLElement = document.createElement("div");
+            div.setAttribute("id", "div[" + i + "]");
+
+            document.body.appendChild(div);
+        }
+
+    }
+
+
+    // display Product    
+    function displayProdctsCategories(_productCategories: ProductCategories): void {
+
+        for (let categories in _productCategories) {
+            let value: Products[] = _productCategories[categories];
+            placeDiv();
+            console.group("1" + categories);
+            console.dir(value.length);
+            console.groupEnd();
+
+
+            for (let i: number = 0; i < 2; i++) {
+                //        let div: HTMLElement = document.createElement("div");
+                //     div.setAttribute("id", "div" + (Object.keys(data).lenght));
+                let div: HTMLElement = document.getElementById("div[" + i + "]");
+                // div.innerHTML = (categories);
+                document.body.appendChild(div);
+
+            }
+            for (let i: number = 0; i < value.length; i++)
+                displayProducts(value[i], categories);
+        }
+    }
+
+    function displayProducts(_products: Products, _categoryName: string): void {
+        let fieldset: HTMLFieldSetElement = document.createElement("fieldset");
+        //   let input: HTMLFieldSetElement = document.createElement("input");
+        let legend: HTMLLegendElement = document.createElement("legend");
+    //    let inputType: string = _products.inputType;
+        legend.innerText = _products.name.toString();
+        fieldset.setAttribute("price", _products.price.toString());
+        fieldset.appendChild(legend);
+        if (_categoryName == "Dekoration") {
+            document.getElementById("div[0]").appendChild(fieldset);
+            for (let i: number = 0; i < _categoryName.length; i++)
+
+                legend.innerText = _products.color[i];
+        }
+        else document.getElementById("div[1]").appendChild(fieldset);
+    }
+    function handleClick(_event: MouseEvent): void {
+        let target: HTMLElement = <HTMLElement>_event.target;
+        if (target.tagName != "fieldset")
+            alert(target.getAttribute("result"));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+//3
+
+
+namespace Aufgabe_5 {
+
+    document.addEventListener("DOMContentLoaded", init);
+
+    function init(_event: Event): void {
+        console.log(data);
+        displayProdctsCategories(data);
+        document.addEventListener("click", handleClick);
+    }
+
+    console.log(Object.keys(data).length);
+    function placeDiv(): void {
+        for (let i: number = 0; i < Object.keys(data).length; i++) {
+            let div: HTMLElement = document.createElement("div");
+            div.setAttribute("id", "div[" + i + "]");
+
+            document.body.appendChild(div);
+        }
+    }
+
+
+    // display Product    
+    function displayProdctsCategories(_productCategories: ProductCategories): void {
+
+        for (let categories in _productCategories) {
+            let value: Products[] = _productCategories[categories];
+            placeDiv();
+            console.group("1" + categories);
+            console.dir(value.length);
+            console.groupEnd();
+
+            for (let i: number = 0; i < 2; i++) {
+                let div: HTMLElement = document.getElementById("div[" + i + "]");
+                document.body.appendChild(div);
+                let div0: HTMLElement = document.getElementById("div[0]");
+                let div1: HTMLElement = document.getElementById("div[1]");
+                div0.innerHTML = ("Dekoration");
+                div1.innerHTML = ("Baumarten");
+            }
+            for (let i: number = 0; i < value.length; i++)
+                displayProducts(value[i], categories, value.length);
+        }
+    }
+
+    function displayProducts(_products: Products, _categoryName: string, _value: number): void {
+        //  console.log("gg", _value );
+        let fieldset: HTMLFieldSetElement = document.createElement("fieldset");
+        let input: HTMLInputElement = document.createElement("input");
+        let legend: HTMLLegendElement = document.createElement("legend");
+        let label: HTMLLabelElement = document.createElement("label");
+
+
+
+        //       console.log(_categoryName, "feece")
+        //        fieldset.setAttribute("price", _products.price.toString());
+        //        fieldset.setAttribute("id", _products.name.toString());
+        //        fieldset.setAttribute("class", "fieldset");
+        //        fieldset.appendChild(legend);
+        //        legend.setAttribute("class", "legend");
+        //        legend.setAttribute("id", _products.name.toString() + " legend");
+
+        if (_categoryName == "Dekoration") {
+            //  for (let i: number = 0; i < _value; i++) {
+            console.log(_products.name, "cecec");
+            input.classList.add("class", _products.name);
+            input.classList.add("formelements");
+            input.setAttribute("type", _products.inputType);
+          //  legend.setAttribute("id", _products.name);
+            fieldset.setAttribute("id", _products.name);
+            document.getElementById("div[0]").appendChild(fieldset);
+
+            document.getElementById(_products.name).appendChild(input);
+
+
+            fieldset.innerText = _products.name.toString();
+            //   label.appendChild(document.createElement("br"));
+        }
+
+
+        else {
+
+            input.classList.add("class", _products.name);
+            input.classList.add("formelements");
+            input.setAttribute("type", _products.inputType);
+            legend.setAttribute("id", _products.name);
+            document.getElementById("div[1]").appendChild(legend);
+            document.getElementById("div[1]").appendChild(input);
+            legend.innerText = _products.name.toString();
+            if (document.getElementById(_products.name).toString() == _products.name) {
+                for (let i: number = 0; i < _value; i++) {
+                    //   label.innerText(_products.color);
+                    document.getElementById(_products.name).appendChild(label);
+                }
+
+            }
+
+
+
+            //    legend.innerText = _products.name.toString();
+            //legend.innerText = _products.color.toString();
+
+            //  label.appendChild(document.createElement("br"));
+        }
+
+    }
+    //        else
+    //
+    //    document.getElementById("div[1]").appendChild(fieldset);
+    //    legend.innerText = _products.name.toString();
+    //    document.getElementsByClassName("legend");
+    //    legend.appendChild(label);
+
+    //}
+
+    function handleClick(_event: MouseEvent): void {
+        let target: HTMLElement = <HTMLElement>_event.target;
+        if (target.tagName != "fieldset")
+            alert(target.getAttribute("result"));
+    }
+
+
+
+}
+
+
+
+// 4
+
+ function displayProducts(_products: Products, _categoryName: string, _value: number): void {
+        //  console.log("gg", _value );
+        let fieldset: HTMLFieldSetElement = document.createElement("fieldset");
+        let legend: HTMLLegendElement = document.createElement("legend");
+        let label: HTMLLabelElement = document.createElement("label");
+        let input: HTMLInputElement = document.createElement("input");
+        console.log("_products " + _products + " _categoryName " + _categoryName + " _value " + _value);
+        /*
+                function getColors(_dekorationIndex: number): void {
+                    for (let i: number = 0; i < data["Dekoration"][_dekorationIndex].color[i].length; i++) {
+                        let colorName: string = data["Dekoration"][_dekorationIndex].color[i];
+                        console.log("color " + data["Dekoration"][_dekorationIndex].color[i].length);
+                        label.innerText = colorName;
+                    }
+                    
+          }
+             
+           function getColors2(_arrayNumber: number): void {
+        for (let j: number = 0; j < data["Dekoration"][_arrayNumber].name.length; j++) { // 2
+            label.innerText = data["Dekoration"][_arrayNumber].color[1];
+            label.appendChild(document.createElement("br"));
+
+            label.setAttribute("type", _products.inputType);
+            label.setAttribute("id", _products.color.toString());
+            document.getElementById(data["Dekoration"][_arrayNumber].name + " legend").appendChild(label);
+        }
+    }
+        
+        */
+        function getColors2(_arrayIndex: number): void {
+            //    console.log(_arrayIndex + "ARAAYNUMMER");
+            for (let i: number = 0; i < data["Dekoration"][_arrayIndex].color.length; i++) {
+                let innerLabel: HTMLLabelElement = document.createElement("label");
+           //     console.log(data["Dekoration"][_arrayIndex].color[0] + " FARBE");
+                innerLabel.innerText = data["Dekoration"][_arrayIndex].color[i];
+                innerLabel.appendChild(document.createElement("br"));
+                innerLabel.setAttribute("type", _products.inputType);
+                innerLabel.setAttribute("id", _products.color.toString());
+                document.getElementById(data["Dekoration"][_arrayIndex].name + " legend").appendChild(innerLabel);
+            }
+        }
+
+
+
+        if (_categoryName == "Dekoration") {
+
+            console.log(_products.name, "cecec");
+            input.classList.add("class", _products.name);
+            input.classList.add("formelements");
+            input.setAttribute("type", _products.inputType);
+
+            fieldset.setAttribute("id", _products.name + " fieldset");
+            document.getElementById("div[0]").appendChild(fieldset);
+
+            legend.innerText = _products.name.toString();
+            legend.appendChild(document.createElement("br"));
+            legend.setAttribute("id", _products.name + " legend");
+
+            document.getElementById(_products.name + " fieldset").appendChild(legend);
+            input.setAttribute("id", _products.name + " input");
+            document.getElementById(_products.name + " legend").appendChild(input);
+
+            for (let i: number = 0; i < data["Dekoration"].length; i++) {       // 1 
+                //      console.log(data["Dekoration"].length + " Dekoration laenge");
+                getColors2(0);
+                console.log(data["Dekoration"][i].name);
+                //            getColors2(0);
+                //            getColors2(1);
+                //            getColors2(2);
+                //            getColors2(3);
+                //            getColors2(4);
+                //            getColors2(5);
+                //            getColors2(6);
+                //            getColors2(7);
+
+
+
+
+            }
+        }
+
+
+        else {
+
+            input.classList.add("class", _products.name);
+            input.classList.add("formelements");
+            input.setAttribute("type", _products.inputType);
+            fieldset.setAttribute("id", _products.name);
+            document.getElementById("div[0]").appendChild(fieldset);
+            legend.innerText = _products.name.toString();
+            document.getElementById(_products.name).appendChild(legend);
+
+            document.getElementById(_products.name).appendChild(input);
+
+
+            fieldset.innerText = _products.name.toString();
+            for (let i: number = 0; i < _value; i++) {
+                let color: string = _products.color[i];
+                label.innerText = color;
+                label.setAttribute("type", _products.inputType);
+                document.getElementById(_products.name).appendChild(label);
+                label.appendChild(document.createElement("br"));
+            }
+
+        }
+        //   }
+
+    }
+
