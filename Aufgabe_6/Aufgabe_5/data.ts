@@ -14,7 +14,7 @@ namespace Aufgabe_6 {
 
     export let data: ProductCategories = {
 
-        
+
         "Baumarten": [
             { name: "Nordmantanne", price: 34.99, color: ["170cm"], inputType: "radio", stepper: false },
             { name: "Fichte", price: 24.99, color: ["180cm"], inputType: "radio", stepper: false },

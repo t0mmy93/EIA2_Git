@@ -1,9 +1,23 @@
-var Aufgabe_5;
-(function (Aufgabe_5) {
+var Aufgabe_6;
+(function (Aufgabe_6) {
     document.addEventListener("DOMContentLoaded", init);
     function init(_event) {
-        displayProdctsCategories(Aufgabe_5.data);
+        displayProdctsCategories(Aufgabe_6.data);
         document.addEventListener("click", handleClick);
+        document.addEventListener("change", handleChange);
+    }
+    function handleChange(_event) {
+        let cart = document.getElementById("cart");
+        cart.innerHTML = "";
+        cart.innerHTML = "<h2>" + "Warenkorb" + "</h2>";
+        let inputs = document.getElementsByTagName("input");
+        for (let i = 0; i < inputs.length; i++) {
+            let product = inputs[i];
+            //  console.log("INPUTS " + inputs[i]);
+            if (parseFloat(product.value) >= 1 || product.checked == true) {
+                displayCart(_event, inputs[i]);
+            }
+        }
     }
     function handleClick(_event) {
         let target = _event.target;
@@ -11,16 +25,9 @@ var Aufgabe_5;
         let name = target.getAttribute("productName");
         console.log(parseFloat(target.value));
         let amount = parseInt(target.value);
-        let stepper = target.getAttribute("stepper");
         console.log("NAME  ", name);
         console.log("Stepperwert  ", amount);
         console.log("PRICE  ", price);
-        if (amount == 0) {
-            displayCart(name, price, 1, stepper);
-        }
-        else {
-            displayCart(name, price, amount, stepper);
-        }
     }
     function displayProdctsCategories(_productCategories) {
         for (let categories in _productCategories) {
@@ -32,10 +39,9 @@ var Aufgabe_5;
             let form = document.getElementById("form");
             let div0 = document.createElement("div");
             let div1 = document.createElement("div");
-            //    form.setAttribute("id", "form");
             div0.innerHTML = ("Baumarten");
             div1.innerHTML = ("Dekoration");
-            document.body.appendChild(form); // form Element f�r Aufgabe 6
+            document.body.appendChild(form);
             document.getElementById("form").appendChild(div0);
             document.getElementById("form").appendChild(div1);
             div0.setAttribute("id", "Baumarten");
@@ -46,82 +52,68 @@ var Aufgabe_5;
     function displayProducts(_categoryName, _anzahlInhalte) {
         if (_categoryName == "Baumarten") {
             for (let i = 0; i < _anzahlInhalte; i++) {
-                let nameForId = Aufgabe_5.data[_categoryName][i].name + " Preis: " + Aufgabe_5.data[_categoryName][i].price.toString();
+                let nameForId = Aufgabe_6.data[_categoryName][i].name + " Preis: " + Aufgabe_6.data[_categoryName][i].price.toString();
                 // fieldsets
                 let fieldset = document.createElement("fieldset");
                 fieldset.innerText = nameForId;
                 fieldset.setAttribute("id", nameForId);
                 document.getElementById(_categoryName).appendChild(fieldset);
                 // label / inputs
-                for (let j = 0; j < Aufgabe_5.data[_categoryName][i].color.length; j++) {
+                for (let j = 0; j < Aufgabe_6.data[_categoryName][i].color.length; j++) {
                     let input = document.createElement("input");
                     document.getElementById(_categoryName).appendChild(input);
-                    input.setAttribute("type", Aufgabe_5.data[_categoryName][i].inputType);
+                    input.setAttribute("type", Aufgabe_6.data[_categoryName][i].inputType);
                     input.setAttribute("class", "inputs");
-                    input.setAttribute("id", Aufgabe_5.data[_categoryName][i].name + " " + i);
-                    input.setAttribute("price", Aufgabe_5.data[_categoryName][i].price.toString());
-                    input.setAttribute("name", Aufgabe_5.data["Baumarten"][i].name);
-                    input.setAttribute("stepper", Aufgabe_5.data["Baumarten"][i].stepper.toString());
-                    input.setAttribute("productName", Aufgabe_5.data[_categoryName][i].name + " Groesse: " + Aufgabe_5.data[_categoryName][i].color[j]);
+                    input.setAttribute("id", Aufgabe_6.data[_categoryName][i].name + " " + i);
+                    input.setAttribute("price", Aufgabe_6.data[_categoryName][i].price.toString());
+                    input.setAttribute("name", "Baeume");
+                    input.setAttribute("stepper", Aufgabe_6.data["Baumarten"][i].stepper.toString());
+                    input.setAttribute("productName", Aufgabe_6.data[_categoryName][i].name + " Groesse: " + Aufgabe_6.data[_categoryName][i].color[j]);
                     let label = document.createElement("label");
-                    label.setAttribute("id", Aufgabe_5.data[_categoryName][i].name + " " + i);
-                    label.innerText = Aufgabe_5.data[_categoryName][i].color[j];
+                    label.setAttribute("id", Aufgabe_6.data[_categoryName][i].name + " " + i);
+                    label.innerText = Aufgabe_6.data[_categoryName][i].color[j];
                     document.getElementById(_categoryName).appendChild(label);
                 }
             }
         }
         else {
             for (let i = 0; i < _anzahlInhalte; i++) {
-                let nameForId = Aufgabe_5.data[_categoryName][i].name + " Preis: " + Aufgabe_5.data[_categoryName][i].price.toString();
+                let nameForId = Aufgabe_6.data[_categoryName][i].name + " Preis: " + Aufgabe_6.data[_categoryName][i].price.toString();
                 // fieldsets
                 let fieldset = document.createElement("fieldset");
                 fieldset.innerText = nameForId;
                 fieldset.setAttribute("id", nameForId);
                 document.getElementById(_categoryName).appendChild(fieldset);
                 // legends
-                for (let j = 0; j < Aufgabe_5.data[_categoryName][i].color.length; j++) {
-                    //      let input: HTMLInputElement = document.createElement("input");
-                    //                    document.getElementById(_categoryName).appendChild(input);
-                    //                    input.appendChild(document.createElement("br"));
-                    //                    input.setAttribute("type", data[_categoryName][i].inputType);
-                    //                    input.setAttribute("name", "inputs");
-                    //                    input.setAttribute("class", "inputs");
-                    //                    input.setAttribute("id", data[_categoryName][i].name + " " + j);
-                    //                    input.setAttribute("price", data[_categoryName][i].price.toString());
-                    //                    input.setAttribute("productName", data[_categoryName][i].name + " Farbe: " + data[_categoryName][i].color[j]);
-                    //                    input.setAttribute("stepper", data["Dekoration"][i].stepper.toString());
+                for (let j = 0; j < Aufgabe_6.data[_categoryName][i].color.length; j++) {
                     let label = document.createElement("label");
-                    label.setAttribute("id", Aufgabe_5.data[_categoryName][i].name + " " + j);
-                    label.innerText = Aufgabe_5.data[_categoryName][i].color[j];
+                    label.setAttribute("id", Aufgabe_6.data[_categoryName][i].name + " " + j);
+                    label.innerText = Aufgabe_6.data[_categoryName][i].color[j];
                     document.getElementById(_categoryName).appendChild(label);
-                    if (Aufgabe_5.data["Dekoration"][i].stepper == true) {
+                    if (Aufgabe_6.data["Dekoration"][i].stepper == true) {
                         let stepper = document.createElement("input");
                         document.getElementById("Dekoration").appendChild(stepper);
-                        stepper.setAttribute("price", Aufgabe_5.data["Dekoration"][i].price.toString());
-                        stepper.setAttribute("productName", Aufgabe_5.data["Dekoration"][i].name.toString() + " " + Aufgabe_5.data["Dekoration"][i].color[j]);
-                        stepper.setAttribute("name", Aufgabe_5.data["Dekoration"][i].name + " " + Aufgabe_5.data["Dekoration"][i].color[j]);
+                        stepper.setAttribute("price", Aufgabe_6.data["Dekoration"][i].price.toString());
+                        stepper.setAttribute("productName", Aufgabe_6.data["Dekoration"][i].name.toString() + " " + Aufgabe_6.data["Dekoration"][i].color[j]);
+                        stepper.setAttribute("name", Aufgabe_6.data["Dekoration"][i].name + " " + Aufgabe_6.data["Dekoration"][i].color[j]);
                         stepper.setAttribute("type", "number");
                         stepper.setAttribute("value", "0");
                         stepper.setAttribute("min", "0");
-                        stepper.setAttribute("id", "input"); //nameForId + i.toString()
+                        stepper.setAttribute("id", "input");
                     }
                 }
             }
         }
     }
-    function displayCart(_productName, _productPrice, _productAmount, _productChecked) {
-        let list = document.createElement("li");
-        list.innerHTML = " ";
-        document.getElementById("cart").appendChild(list);
-        console.log("displayCartFunction:  " + _productName + "  " + parseFloat(_productPrice));
-        if (_productChecked == "false") {
-            list.innerHTML = _productName + "  Preis  " + parseFloat(_productPrice);
-        }
-        else {
-            let newPrice = (parseFloat(_productPrice) * _productAmount);
-            console.log("NEW PRICE    ", _productName);
-            list.innerHTML = _productName + "  Preis  " + newPrice;
-        }
+    function displayCart(_event, _input) {
+        let cart = document.getElementById("cart");
+        //  let target: string = _input.getAttribute("name");     //<HTMLInputElement>_event.target;  
+        //    console.log("TARGET " + target);
+        let productPrice = parseFloat(_input.getAttribute("price"));
+        let productName = _input.getAttribute("productName");
+        let productAmount = parseFloat(_input.value);
+        let newPrice = productPrice * productAmount;
+        cart.innerHTML = productAmount + "x " + productName + " " + newPrice + "Euro";
     }
-})(Aufgabe_5 || (Aufgabe_5 = {}));
+})(Aufgabe_6 || (Aufgabe_6 = {}));
 //# sourceMappingURL=algorythm.js.map
