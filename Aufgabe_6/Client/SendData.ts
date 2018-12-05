@@ -1,5 +1,5 @@
 namespace L06_SendData {
-    window.addEventListener("load", init); // ladet init fu
+    window.addEventListener("load", init); 
     let address: string = "http://localhost:8100";
     
 
