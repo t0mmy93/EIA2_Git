@@ -1,7 +1,7 @@
 namespace L06_SendData {
     window.addEventListener("load", init); // ladet init fu
     let address: string = "http://localhost:8100";
-    //let address: string = "https://eia2-nodetest.herokuapp.com";
+    
 
     function init(_event: Event): void {
         setupColorDivs();
