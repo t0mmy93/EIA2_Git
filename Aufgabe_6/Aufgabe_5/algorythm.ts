@@ -1,9 +1,11 @@
 namespace Aufgabe_6 {
     document.addEventListener("DOMContentLoaded", init);
+    let address: string = "http://localhost:8100";
     function init(_event: Event): void {
         displayProdctsCategories(data);
         document.addEventListener("click", handleClick);
         document.addEventListener("change", handleChange);
+        setupAsyncForm(); // Aufgabe neu
     }
 
     function handleChange(_event: Event): void {
@@ -15,27 +17,74 @@ namespace Aufgabe_6 {
 
         for (let i: number = 0; i < inputs.length; i++) {
             let product: HTMLInputElement = inputs[i];
-            //  console.log("INPUTS " + inputs[i]);
-            if (parseFloat(product.value) >= 1 || product.checked == true) {
+                       if (parseFloat(product.value) >= 1 || product.checked == true) {
                 displayCart(_event, inputs[i]);
             }
         }
     }
 
+    // Aufgabe neu
+    function setupAsyncForm(): void {
+        let button: Element = document.querySelector("[type=button]");
+        button.addEventListener("click", handleClickOnAsync);
+    }
 
+    function handleClickOnAsync(_event: Event): void {
+        let articles: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
+        let orderList: string[] = [];
+        for (let i: number = 0; i < articles.length; i++) {
+            let products: HTMLInputElement = articles[i];
+            if (products.checked == true) {
+                let color: string = products.name + " " + products.getAttribute("price") + " Euro";
+                sendRequestWithCustomData(color);
+                orderList.push(color);
+            }
+            else {
+                if (Number(products.value) > 0) {
+                    let color: string = products.name + " " + (Number(products.getAttribute("price")) * Number(products.value)) + " Euro";
+                    sendRequestWithCustomData(color);
+                    orderList.push(color);
+                }
+            }
+        }
+    
+        let displayOrder: HTMLElement = document.createElement("div");
+        displayOrder.setAttribute("id", "order");
+        displayOrder.innerText = "";
+        for (let i: number = 0; i < orderList.length; i++) {
+            
+            
+            displayOrder.innerText += orderList[i] /*+ "<br>"*/; // warum geht br nicht ? 
+        }
+        document.getElementById("bestellschein").appendChild(displayOrder);
+    }
 
+    function sendRequestWithCustomData(_color: string): void {
+        let xhr: XMLHttpRequest = new XMLHttpRequest();
+        xhr.open("GET", address + "?products=" + _color, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
+    }
 
+    function handleStateChange(_event: ProgressEvent): void {
+        var xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+            console.log("response: " + xhr.response);
+        }
+    }
+    //Aufgabe NEU       
     function handleClick(_event: MouseEvent): void {
 
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
         let price: string = target.getAttribute("price");
         let name: string = target.getAttribute("productName");
-        console.log(parseFloat(target.value));
+        //   console.log(parseFloat(target.value));
         let amount: number = parseInt(target.value);
 
-        console.log("NAME  ", name);
-        console.log("Stepperwert  ", amount);
-        console.log("PRICE  ", price);
+        //        console.log("NAME  ", name);
+        //        console.log("Stepperwert  ", amount);
+        //        console.log("PRICE  ", price);
     }
 
 
@@ -44,10 +93,10 @@ namespace Aufgabe_6 {
         for (let categories in _productCategories) {
             let value: Products[] = _productCategories[categories];
 
-            console.group("Kategorie " + categories);
-            console.dir(value);
-            console.groupEnd();
-            console.log(categories + " categories");
+            //            console.group("Kategorie " + categories);
+            //            console.dir(value);
+            //            console.groupEnd();
+            //            console.log(categories + " categories");
 
             let form: HTMLElement = document.getElementById("form");
             let div0: HTMLDivElement = document.createElement("div");
@@ -84,7 +133,7 @@ namespace Aufgabe_6 {
                     input.setAttribute("class", "inputs");
                     input.setAttribute("id", data[_categoryName][i].name + " " + i);
                     input.setAttribute("price", data[_categoryName][i].price.toString());
-                    input.setAttribute("name", "Baeume");
+                    input.setAttribute("name", "Baeume"); // ändern
                     input.setAttribute("stepper", data["Baumarten"][i].stepper.toString());
                     input.setAttribute("productName", data[_categoryName][i].name + " Groesse: " + data[_categoryName][i].color[j]);
 

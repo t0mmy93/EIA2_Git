@@ -5,6 +5,20 @@ div {
 #cart {
 	width: 26%;
 	float: right;
+	margin-bottom: 150px;
+	position: relative;
 	
 	
+}
+#bestellschein {
+	float: right;
+	width: 25%;
+	margin-top: 50px;
+	position: relative;
+	
+}
+
+#asynForm {
+	
+	margin-bottom: 100px;
 }
