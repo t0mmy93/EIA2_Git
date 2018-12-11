@@ -1,6 +1,6 @@
 namespace Aufgabe_6 {
     document.addEventListener("DOMContentLoaded", init);
-    let address: string = "http://localhost:8100";
+    let address: string = "https://aufgabe61.herokuapp.com/";
     function init(_event: Event): void {
         displayProdctsCategories(data);
         document.addEventListener("click", handleClick);
@@ -133,7 +133,7 @@ namespace Aufgabe_6 {
                     input.setAttribute("class", "inputs");
                     input.setAttribute("id", data[_categoryName][i].name + " " + i);
                     input.setAttribute("price", data[_categoryName][i].price.toString());
-                    input.setAttribute("name", "Baeume"); // ändern
+                    input.setAttribute("name", "Baeume"); // Ã¤ndern
                     input.setAttribute("stepper", data["Baumarten"][i].stepper.toString());
                     input.setAttribute("productName", data[_categoryName][i].name + " Groesse: " + data[_categoryName][i].color[j]);
 
