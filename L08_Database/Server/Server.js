@@ -33,7 +33,7 @@ function handleRequest(_request, _response) {
             break;
         case "refresh":
             Database.findAll(findCallback);
-            console.log("REFRESH: " + Database.findAll(findCallback));
+            console.log("REFRESH: ");
             break;
         case "search":
             let matrikelN = { matrikel: parseInt(query["matrikel"]) };

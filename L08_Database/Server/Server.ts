@@ -42,7 +42,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             break;
         case "refresh":
             Database.findAll(findCallback);
-           console.log("REFRESH: "  + Database.findAll(findCallback));
+           console.log("REFRESH: ");
             break;
 
         case "search":
