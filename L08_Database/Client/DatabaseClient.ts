@@ -15,6 +15,7 @@ namespace DatabaseClient {
 
     function find(_event: Event): void {
         let input: HTMLInputElement = <HTMLInputElement>document.getElementById("MN");
+        console.log("INPUT: ");
         let url: string = "command=search" + "&" + "matrikel" + "=" + input.value;
         sendRequest(url, handleFindResponse);
     }

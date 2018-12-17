@@ -14,6 +14,7 @@ var DatabaseClient;
     }
     function find(_event) {
         let input = document.getElementById("MN");
+        console.log("INPUT: ");
         let url = "command=search" + "&" + "matrikel" + "=" + input.value;
         sendRequest(url, handleFindResponse);
     }
