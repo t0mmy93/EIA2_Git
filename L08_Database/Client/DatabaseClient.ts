@@ -7,18 +7,28 @@ namespace DatabaseClient {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
-        let suche: HTMLButtonElement = <HTMLButtonElement>document.getElementById("suche");
+        let search: HTMLButtonElement = <HTMLButtonElement>document.getElementById("search");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        suche.addEventListener("click", find);
+        search.addEventListener("click", find);
     }
 
+    //    function find(_event: Event): void {
+    //        let input: HTMLInputElement = <HTMLInputElement>document.getElementById("MN");
+    //       
+    //        let url: string = "command=search" + "&" + "matrikel" + "=" + input.value;
+    //        
+    //        sendRequest(url, handleFesponse);
+    //    }
+    
     function find(_event: Event): void {
-        let input: HTMLInputElement = <HTMLInputElement>document.getElementById("MN");
-        console.log("INPUT: ");
-        let url: string = "command=search" + "&" + "matrikel" + "=" + input.value;
-        sendRequest(url, handleFindResponse);
+        let search: HTMLInputElement = <HTMLInputElement>document.getElementById("number");
+        let query: string = "command=find";
+        query += "&matrikel=" + search.value;
+        console.log(query);
+        sendRequest(query, handleFindResponse);
     }
+
 
 
     function insert(_event: Event): void {

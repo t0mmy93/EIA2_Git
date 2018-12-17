@@ -7,16 +7,24 @@ var DatabaseClient;
         console.log("Init");
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
-        let suche = document.getElementById("suche");
+        let search = document.getElementById("search");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        suche.addEventListener("click", find);
+        search.addEventListener("click", find);
     }
+    //    function find(_event: Event): void {
+    //        let input: HTMLInputElement = <HTMLInputElement>document.getElementById("MN");
+    //       
+    //        let url: string = "command=search" + "&" + "matrikel" + "=" + input.value;
+    //        
+    //        sendRequest(url, handleFesponse);
+    //    }
     function find(_event) {
-        let input = document.getElementById("MN");
-        console.log("INPUT: ");
-        let url = "command=search" + "&" + "matrikel" + "=" + input.value;
-        sendRequest(url, handleFindResponse);
+        let search = document.getElementById("number");
+        let query = "command=find";
+        query += "&matrikel=" + search.value;
+        console.log(query);
+        sendRequest(query, handleFindResponse);
     }
     function insert(_event) {
         let inputs = document.getElementsByTagName("input");
