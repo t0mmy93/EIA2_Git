@@ -23,7 +23,7 @@ namespace DatabaseClient {
     
     function find(_event: Event): void {
         let search: HTMLInputElement = <HTMLInputElement>document.getElementById("number");
-        let query: string = "command=find";
+        let query: string = "command=search";
         query += "&matrikel=" + search.value;
         console.log(query);
         sendRequest(query, handleFindResponse);

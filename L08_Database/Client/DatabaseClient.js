@@ -21,7 +21,7 @@ var DatabaseClient;
     //    }
     function find(_event) {
         let search = document.getElementById("number");
-        let query = "command=find";
+        let query = "command=search";
         query += "&matrikel=" + search.value;
         console.log(query);
         sendRequest(query, handleFindResponse);
