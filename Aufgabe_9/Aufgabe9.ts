@@ -1,10 +1,10 @@
 namespace Aufgabe_9 {
     window.addEventListener("load", init);
-    let crc: CanvasRenderingContext2D;
+    let kannWas: CanvasRenderingContext2D;
 
     function init(): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
-        crc = canvas.getContext("2d");
+        kannWas = canvas.getContext("2d");
 
         drawSky();
         drawSlope();
@@ -33,147 +33,151 @@ namespace Aufgabe_9 {
             drawSnow(x, y);
         }
     }
+    
+        function drawTrees(_x: number, _y: number, _color: string): void {
+
+        kannWas.fillStyle = "#886A08";
+        kannWas.fillRect(_x - 8, _y + 60, 12, 15);
+        kannWas.beginPath();
+        kannWas.moveTo(_x, _y);
+        kannWas.lineTo(_x + 20, _y + 60);
+        kannWas.lineTo(_x - 20, _y + 60);
+        kannWas.closePath();
+        kannWas.fillStyle = _color;
+        kannWas.fill();
+
+    }
+
+    function drawSnow(_x: number, _y: number): void {
+
+        kannWas.beginPath();
+        kannWas.arc(_x, _y, 3, 0, 4 * Math.PI);
+        kannWas.fillStyle = "#FFFFFF";
+        kannWas.fill();
+        kannWas.lineWidth = .3;
+        kannWas.strokeStyle = "#707070";
+        kannWas.stroke();
+
+
+    }
+    
+    
     //sky
     function drawSky(): void {
-        crc.fillStyle = "#63B8ff    ";
-        crc.fillRect(0, 0, 700, 700);
-        crc.fill();
+        kannWas.fillStyle = "#63B8ff    ";
+        kannWas.fillRect(0, 0, 700, 700);
+        kannWas.fill();
 
     }
 
     // slope
     function drawSlope(): void {
 
-        crc.beginPath();
-        crc.moveTo(50, 300);
-        crc.lineTo(700, 600);
-        crc.lineTo(700, 700);
-        crc.lineTo(0, 700);
-        crc.lineTo(0, 300);
-        crc.closePath();
-        crc.fillStyle = "#FFFFFF";
-        crc.fill();
+        kannWas.beginPath();
+        kannWas.moveTo(50, 300);
+        kannWas.lineTo(700, 600);
+        kannWas.lineTo(700, 700);
+        kannWas.lineTo(0, 700);
+        kannWas.lineTo(0, 300);
+        kannWas.closePath();
+        kannWas.fillStyle = "#FFFFFF";
+        kannWas.fill();
 
     }
     // sun
     function drawSun(): void {
 
-        crc.beginPath();
-        crc.arc(645, 54, 50, 0, 2 * Math.PI);
-        crc.fillStyle = "#FFD700";
-        crc.fill();
+        kannWas.beginPath();
+        kannWas.arc(645, 54, 50, 0, 2 * Math.PI);
+        kannWas.fillStyle = "#FFD700";
+        kannWas.fill();
     }
     // cloud
     function drawCloud1(): void {
 
-        crc.beginPath();
-        crc.arc(170, 120, 65, 0, 2 * Math.PI);
-        crc.arc(240, 120, 55, 0, 2 * Math.PI);
-        crc.arc(280, 120, 60, 0, 2 * Math.PI);
-        crc.fillStyle = "#FFFFFF";
-        crc.fill();
+        kannWas.beginPath();
+        kannWas.arc(170, 120, 65, 0, 2 * Math.PI);
+        kannWas.arc(240, 120, 55, 0, 2 * Math.PI);
+        kannWas.arc(280, 120, 60, 0, 2 * Math.PI);
+        kannWas.fillStyle = "#FFFFFF";
+        kannWas.fill();
 
     }
 
     function drawCloud2(): void {
 
-        crc.beginPath();
-        crc.arc(350, 50, 65, 0, 2 * Math.PI);
-        crc.arc(420, 50, 45, 0, 2 * Math.PI);
-        crc.fillStyle = "#FFFFFF";
-        crc.fill();
+        kannWas.beginPath();
+        kannWas.arc(350, 50, 65, 0, 2 * Math.PI);
+        kannWas.arc(420, 50, 45, 0, 2 * Math.PI);
+        kannWas.fillStyle = "#FFFFFF";
+        kannWas.fill();
 
     }
 
-    function drawTrees(_x: number, _y: number, _color: string): void {
 
-        crc.fillStyle = "#886A08";
-        crc.fillRect(_x - 8, _y + 60, 12, 15);
-        crc.beginPath();
-        crc.moveTo(_x, _y);
-        crc.lineTo(_x + 20, _y + 60);
-        crc.lineTo(_x - 20, _y + 60);
-        crc.closePath();
-        crc.fillStyle = _color;
-        crc.fill();
-
-    }
-
-    function drawSnow(_x: number, _y: number): void {
-
-        crc.beginPath();
-        crc.arc(_x, _y, 3, 0, 4 * Math.PI);
-        crc.fillStyle = "#FFFFFF";
-        crc.fill();
-        crc.lineWidth = .3;
-        crc.strokeStyle = "#707070";
-        crc.stroke();
-
-
-    }
 
     // kids
     function drawKids(): void {
 
-        crc.beginPath();
-        crc.fillStyle = "#ffDEAD";
-        crc.fillRect(406, 650, 5, 25);
-        crc.fill();
-        crc.beginPath();
-        crc.fillStyle = "#000000";
-        crc.arc(410, 645, 6, 0, 2 * Math.PI);
-        crc.fill();
+        kannWas.beginPath();
+        kannWas.fillStyle = "#ffDEAD";
+        kannWas.fillRect(406, 650, 5, 25);
+        kannWas.fill();
+        kannWas.beginPath();
+        kannWas.fillStyle = "#000000";
+        kannWas.arc(410, 645, 6, 0, 2 * Math.PI);
+        kannWas.fill();
 
-        crc.beginPath();
-        crc.fillStyle = "#ffb90f";
-        crc.fillRect(393, 650, 5, 25);
-        crc.fill();
-        crc.beginPath();
-        crc.fillStyle = "#000000";
-        crc.arc(395, 645, 6, 0, 2 * Math.PI);
-        crc.fill();
+        kannWas.beginPath();
+        kannWas.fillStyle = "#ffb90f";
+        kannWas.fillRect(393, 650, 5, 25);
+        kannWas.fill();
+        kannWas.beginPath();
+        kannWas.fillStyle = "#000000";
+        kannWas.arc(395, 645, 6, 0, 2 * Math.PI);
+        kannWas.fill();
 
-        crc.beginPath();
-        crc.fillStyle = "#0000FF";
-        crc.fillRect(75, 300, 5, 25);
-        crc.fill();
-        crc.beginPath();
-        crc.fillStyle = "#000000";
-        crc.arc(78, 296, 7, 0, 2 * Math.PI);
-        crc.fill();
+        kannWas.beginPath();
+        kannWas.fillStyle = "#0000FF";
+        kannWas.fillRect(75, 300, 5, 25);
+        kannWas.fill();
+        kannWas.beginPath();
+        kannWas.fillStyle = "#000000";
+        kannWas.arc(78, 296, 7, 0, 2 * Math.PI);
+        kannWas.fill();
     }
 
     // Sled
     function drawSled(): void {
 
-        crc.beginPath();
-        crc.moveTo(65, 315);
-        crc.lineTo(85, 328);
-        crc.moveTo(80, 325);
-        crc.lineTo(80, 340);
-        crc.moveTo(72, 320);
-        crc.lineTo(72, 335);
-        crc.moveTo(65, 330);
-        crc.lineTo(85, 342);
-        crc.closePath();
-        crc.fillStyle = "#000000";
-        crc.strokeStyle = "#000000";
-        crc.stroke();
-        crc.fill();
+        kannWas.beginPath();
+        kannWas.moveTo(65, 315);
+        kannWas.lineTo(85, 328);
+        kannWas.moveTo(80, 325);
+        kannWas.lineTo(80, 340);
+        kannWas.moveTo(72, 320);
+        kannWas.lineTo(72, 335);
+        kannWas.moveTo(65, 330);
+        kannWas.lineTo(85, 342);
+        kannWas.closePath();
+        kannWas.fillStyle = "#000000";
+        kannWas.strokeStyle = "#000000";
+        kannWas.stroke();
+        kannWas.fill();
 
-        crc.beginPath();
-        crc.moveTo(410, 680);
-        crc.lineTo(430, 680);
-        crc.moveTo(425, 680);
-        crc.lineTo(425, 690);
-        crc.moveTo(415, 680);
-        crc.lineTo(415, 690);
-        crc.moveTo(410, 690);
-        crc.lineTo(430, 690);
-        crc.closePath();
-        crc.fillStyle = "#000000";
-        crc.strokeStyle = "#000000";
-        crc.stroke();
-        crc.fill();
+        kannWas.beginPath();
+        kannWas.moveTo(410, 680);
+        kannWas.lineTo(430, 680);
+        kannWas.moveTo(425, 680);
+        kannWas.lineTo(425, 690);
+        kannWas.moveTo(415, 680);
+        kannWas.lineTo(415, 690);
+        kannWas.moveTo(410, 690);
+        kannWas.lineTo(430, 690);
+        kannWas.closePath();
+        kannWas.fillStyle = "#000000";
+        kannWas.strokeStyle = "#000000";
+        kannWas.stroke();
+        kannWas.fill();
     }
 }
