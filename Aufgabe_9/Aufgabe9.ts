@@ -120,8 +120,8 @@ namespace Aufgabe_9 {
     function drawKids(): void {
 
         kannWas.beginPath();
-        kannWas.fillStyle = "#ffDEAD";
-        kannWas.fillRect(406, 650, 5, 25);
+        kannWas.fillStyle = "#000000";
+        kannWas.fillRect(409, 650, 2, 25);
         kannWas.fill();
         kannWas.beginPath();
         kannWas.fillStyle = "#000000";
@@ -129,8 +129,8 @@ namespace Aufgabe_9 {
         kannWas.fill();
 
         kannWas.beginPath();
-        kannWas.fillStyle = "#ffb90f";
-        kannWas.fillRect(393, 650, 5, 25);
+        kannWas.fillStyle = "#000000";
+        kannWas.fillRect(394, 650, 2, 25);
         kannWas.fill();
         kannWas.beginPath();
         kannWas.fillStyle = "#000000";
@@ -138,8 +138,8 @@ namespace Aufgabe_9 {
         kannWas.fill();
 
         kannWas.beginPath();
-        kannWas.fillStyle = "#0000FF";
-        kannWas.fillRect(75, 300, 5, 25);
+        kannWas.fillStyle = "#000000";
+        kannWas.fillRect(76, 300, 2, 25);
         kannWas.fill();
         kannWas.beginPath();
         kannWas.fillStyle = "#000000";
