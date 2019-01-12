@@ -2,6 +2,7 @@ namespace L10_Animation {
     export class Trees {
         x: number;
         y: number;
+        arcTree: number;
 
         colorLeaves: string = "#32CD32";
         colorTrunk: string = "#886A08";
@@ -22,6 +23,11 @@ namespace L10_Animation {
             crc2.closePath();
             crc2.fillStyle = this.colorLeaves;
             crc2.fill();
+            crc2.beginPath();
+            crc2.fillStyle = "#000000";
+            crc2.arc(this.x - 2, this.y + 60, 15, 0, 2 * Math.PI);
+            //   crc2.fill();
+            crc2.stroke();
         }
     }
 }

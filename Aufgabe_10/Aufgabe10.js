@@ -1,16 +1,17 @@
 var L10_Animation;
 (function (L10_Animation) {
     window.addEventListener("load", init);
+    //    let c = document.getElementById("Canvas");
     let fps = 25;
     let snowflakes = [];
-    let trees = [];
+    L10_Animation.trees = [];
     let childs = [];
     let imgData;
     function init(_event) {
         console.log("Canvas started");
         let canvas = document.getElementsByTagName("canvas")[0];
         L10_Animation.crc2 = canvas.getContext("2d");
-        console.log(L10_Animation.crc2);
+        //   console.log(crc2);
         drawSky();
         drawCloud();
         drawSun();
@@ -28,9 +29,9 @@ var L10_Animation;
             let tree = new L10_Animation.Trees();
             tree.x = 15 + Math.random() * (L10_Animation.crc2.canvas.width - 520);
             tree.y = 170 + Math.random() * (L10_Animation.crc2.canvas.height - 250);
-            trees.push(tree);
+            L10_Animation.trees.push(tree);
         }
-        for (let i = 0; i < 160; i++) {
+        for (let i = 0; i < 10; i++) {
             let child = new L10_Animation.Childs();
             child.x = 40;
             child.y = 130 * (Math.random() + 100);
@@ -43,6 +44,11 @@ var L10_Animation;
             child.y = 200 + Math.random() * (L10_Animation.crc2.canvas.height - 300);
             childs.push(child);
         }
+        //        function hitbox(_x: number, _y: number, _radius: number, _color: string) {
+        //            this.x = _x;
+        //            this.y = _y;
+        //            this.radius = _radius;
+        //       s._c       //        }
         update();
     }
     function drawSky() {
@@ -85,11 +91,30 @@ var L10_Animation;
             snowflake.draw();
         }
         for (let i = 0; i < 5; i++) {
-            let tree = trees[i];
+            let tree = L10_Animation.trees[i];
             tree.draw();
         }
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 1; i++) {
+            let tree = L10_Animation.trees[i];
             let child = childs[i];
+            //       console.log(child.x + "    "  + child.y);
+            //  console.log(child.x + "c.x  " + child.y + "c.y  ");
+            let childVektor = (child.x * child.x + child.y * child.y);
+            let treeVektor = (tree.x * tree.x + tree.y * tree.y);
+            console.log(childVektor + "child  " + treeVektor + " tree ");
+            if (childVektor == treeVektor) {
+                console.log("Vektor hit");
+            }
+            //            if (crc2.isPointInPath(child.x + child.y, tree.x + tree.y)) {
+            //                console.log("COllsion");
+            //                //                // alert("Collision");
+            //                //                //      child.drawBloo      
+            //                //
+            //            }
+            //            if (child.x == tree.x && child.y == tree.y) {
+            //                            console.log("Collision");
+            //                           // child.drawBlood();
+            //                        }
             child.draw();
             child.move();
         }

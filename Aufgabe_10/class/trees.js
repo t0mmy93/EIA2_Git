@@ -17,6 +17,11 @@ var L10_Animation;
             L10_Animation.crc2.closePath();
             L10_Animation.crc2.fillStyle = this.colorLeaves;
             L10_Animation.crc2.fill();
+            L10_Animation.crc2.beginPath();
+            L10_Animation.crc2.fillStyle = "#000000";
+            L10_Animation.crc2.arc(this.x - 2, this.y + 60, 15, 0, 2 * Math.PI);
+            //   crc2.fill();
+            L10_Animation.crc2.stroke();
         }
     }
     L10_Animation.Trees = Trees;
