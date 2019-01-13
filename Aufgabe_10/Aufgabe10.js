@@ -101,8 +101,10 @@ var L10_Animation;
             //  console.log(child.x + "c.x  " + child.y + "c.y  ");
             let childVektor = (child.x * child.x + child.y * child.y);
             let treeVektor = (tree.x * tree.x + tree.y * tree.y);
-            console.log(childVektor + "child  " + treeVektor + " tree ");
-            if (childVektor == treeVektor) {
+            let vektor = childVektor - treeVektor;
+            console.log(vektor);
+            //     console.log(childVektor + "child  " + treeVektor + " tree ");
+            if (vektor < 300 && vektor > -300) {
                 console.log("Vektor hit");
             }
             //            if (crc2.isPointInPath(child.x + child.y, tree.x + tree.y)) {

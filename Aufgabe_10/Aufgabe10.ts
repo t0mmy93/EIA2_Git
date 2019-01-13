@@ -2,7 +2,7 @@ namespace L10_Animation {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
 
-//    let c = document.getElementById("Canvas");
+    //    let c = document.getElementById("Canvas");
 
     let fps: number = 25;
     let snowflakes: Snowflakes[] = [];
@@ -150,19 +150,21 @@ namespace L10_Animation {
 
             let childVektor: number = (child.x * child.x + child.y * child.y);
             let treeVektor: number = (tree.x * tree.x + tree.y * tree.y);
-            console.log(childVektor + "child  " + treeVektor + " tree ");
-            if (childVektor == treeVektor) {
+            let vektor: number = childVektor - treeVektor;
+            console.log(vektor);
+       //     console.log(childVektor + "child  " + treeVektor + " tree ");
+            if (vektor < 300 && vektor > -300) {
                 console.log("Vektor hit");
             }
 
 
 
-//            if (crc2.isPointInPath(child.x + child.y, tree.x + tree.y)) {
-//                console.log("COllsion");
-//                //                // alert("Collision");
-//                //                //      child.drawBloo      
-//                //
-//            }
+            //            if (crc2.isPointInPath(child.x + child.y, tree.x + tree.y)) {
+            //                console.log("COllsion");
+            //                //                // alert("Collision");
+            //                //                //      child.drawBloo      
+            //                //
+            //            }
 
             //            if (child.x == tree.x && child.y == tree.y) {
             //                            console.log("Collision");
