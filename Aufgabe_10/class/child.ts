@@ -39,28 +39,29 @@ namespace L10_Animation {
 
         }
 
-        //        drawBlood(): void {
-        //            crc2.beginPath();
-        //            crc2.fillStyle = "#FF0000";
-        //            crc2.fillRect(this.x - 9, this.y - 50, 2, 25);
-        //            crc2.fill();
-        //            crc2.beginPath();
-        //            crc2.fillStyle = "#FF0000";
-        //           
-        //
-        //            crc2.closePath();
-        //            crc2.fillStyle = "#FF0000";
-        //            crc2.strokeStyle = "#FF0000";
-        //            crc2.stroke();
-        //            crc2.fill();
-        //
-        //        }
+                drawBlood(): void {
+                    crc2.beginPath();
+                    crc2.fillStyle = "red";
+                    crc2.fillRect(this.x - 9, this.y - 50, 2, 25);
+                    crc2.fill();
+                    crc2.beginPath();
+                    crc2.fillStyle = "red";
+                   
+        
+                    crc2.closePath();
+                    crc2.fillStyle = "red";
+                    crc2.strokeStyle = "red";
+                    crc2.stroke();
+                    crc2.fill();
+        
+                }
 
         move(): void {
 
             if (this.y > 460) {
                 this.y = 150;
                 this.x = 0;
+                this.y = 200 + (Math.random() * 100);
             }
 
             this.x += 6;

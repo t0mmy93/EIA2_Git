@@ -9,8 +9,8 @@ var L10_Animation;
         }
         draw() {
             L10_Animation.crc2.beginPath();
-            L10_Animation.crc2.arc(this.x, this.y, 3, 0, 4 * Math.PI);
-            L10_Animation.crc2.fillStyle = "#000000";
+            L10_Animation.crc2.arc(this.x, this.y, 4, 0, 4 * Math.PI);
+            L10_Animation.crc2.fillStyle = "#FFFFFF";
             L10_Animation.crc2.fill();
             L10_Animation.crc2.lineWidth = .3;
             L10_Animation.crc2.strokeStyle = "#707070";

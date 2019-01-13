@@ -57,7 +57,7 @@ namespace L10_Animation {
             child.dy = /*Math.random()* */ + 4;
         }
 
-        for (let i: number = 0; i < 3; i++) {
+        for (let i: number = 0; i < 160; i++) {
             let child: Childs = new Childs();
 
             child.x = 15 + Math.random() * (crc2.canvas.width - 700);
@@ -130,18 +130,18 @@ namespace L10_Animation {
 
 
 
-        for (let i: number = 0; i < 30; i++) {
+        for (let i: number = 0; i < 70; i++) {
             let snowflake: Snowflakes = snowflakes[i];
             snowflake.move();
             snowflake.draw();
         }
 
-        for (let i: number = 0; i < 5; i++) {
+        for (let i: number = 0; i < 10; i++) {
             let tree: Trees = trees[i];
             tree.draw();
         }
 
-        for (let i: number = 0; i < 1; i++) {
+        for (let i: number = 0; i < 10; i++) {
             let tree: Trees = trees[i];
             let child: Childs = childs[i];
             //       console.log(child.x + "    "  + child.y);
@@ -151,10 +151,11 @@ namespace L10_Animation {
             let childVektor: number = (child.x * child.x + child.y * child.y);
             let treeVektor: number = (tree.x * tree.x + tree.y * tree.y);
             let vektor: number = childVektor - treeVektor;
-            console.log(vektor);
-       //     console.log(childVektor + "child  " + treeVektor + " tree ");
-            if (vektor < 300 && vektor > -300) {
+            console.log();
+            console.log(childVektor + "child  " + treeVektor + " tree ");
+            if (vektor < 500 && vektor > -500) {
                 console.log("Vektor hit");
+                child.drawBlood();
             }
 
 

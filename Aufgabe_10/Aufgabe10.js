@@ -38,7 +38,7 @@ var L10_Animation;
             child.dx = +4;
             child.dy = +4;
         }
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 160; i++) {
             let child = new L10_Animation.Childs();
             child.x = 15 + Math.random() * (L10_Animation.crc2.canvas.width - 700);
             child.y = 200 + Math.random() * (L10_Animation.crc2.canvas.height - 300);
@@ -85,16 +85,16 @@ var L10_Animation;
         window.setTimeout(update, 1000 / fps);
         L10_Animation.crc2.clearRect(0, 0, L10_Animation.crc2.canvas.width, L10_Animation.crc2.canvas.height);
         L10_Animation.crc2.putImageData(imgData, 0, 0);
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 70; i++) {
             let snowflake = snowflakes[i];
             snowflake.move();
             snowflake.draw();
         }
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 10; i++) {
             let tree = L10_Animation.trees[i];
             tree.draw();
         }
-        for (let i = 0; i < 1; i++) {
+        for (let i = 0; i < 10; i++) {
             let tree = L10_Animation.trees[i];
             let child = childs[i];
             //       console.log(child.x + "    "  + child.y);
@@ -102,10 +102,11 @@ var L10_Animation;
             let childVektor = (child.x * child.x + child.y * child.y);
             let treeVektor = (tree.x * tree.x + tree.y * tree.y);
             let vektor = childVektor - treeVektor;
-            console.log(vektor);
-            //     console.log(childVektor + "child  " + treeVektor + " tree ");
-            if (vektor < 300 && vektor > -300) {
+            console.log();
+            console.log(childVektor + "child  " + treeVektor + " tree ");
+            if (vektor < 500 && vektor > -500) {
                 console.log("Vektor hit");
+                child.drawBlood();
             }
             //            if (crc2.isPointInPath(child.x + child.y, tree.x + tree.y)) {
             //                console.log("COllsion");
