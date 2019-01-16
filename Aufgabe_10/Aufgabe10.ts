@@ -7,7 +7,8 @@ namespace L10_Animation {
     let fps: number = 25;
     let snowflakes: Snowflakes[] = [];
     export let trees: Trees[] = [];
-    let childs: Childs[] = [];
+    let childDown: ChildDown[] = [];
+    let childUp: ChildUp[] = [];
     let imgData: ImageData;
 
 
@@ -48,8 +49,8 @@ namespace L10_Animation {
             trees.push(tree);
         }
 
-        for (let i: number = 0; i < 10; i++) {
-            let child: Childs = new Childs();
+        for (let i: number = 0; i < 5; i++) {
+            let child: ChildDown = new ChildDown();
             child.x = 40;
             child.y = 130 * (Math.random() + 100);
 
@@ -58,14 +59,34 @@ namespace L10_Animation {
         }
 
         for (let i: number = 0; i < 160; i++) {
-            let child: Childs = new Childs();
+            let child: ChildDown = new ChildDown();
 
             child.x = 15 + Math.random() * (crc2.canvas.width - 700);
             child.y = 200 + Math.random() * (crc2.canvas.height - 300);
 
 
 
-            childs.push(child);
+            childDown.push(child);
+        }
+        
+        for (let i: number = 0; i < 5; i++) {
+            let child: ChildUp = new ChildUp();
+            child.x = 40;
+            child.y = 130 * (Math.random() + 100);
+
+            child.dx = /*Math.random() * */ + 4;
+            child.dy = /*Math.random()* */ + 4;
+        }
+
+        for (let i: number = 0; i < 160; i++) {
+            let child: ChildUp = new ChildUp();
+
+            child.x = 15 + Math.random() * (crc2.canvas.width - 700);
+            child.y = 200 + Math.random() * (crc2.canvas.height - 300);
+
+
+
+            childUp.push(child);
         }
 
         //        function hitbox(_x: number, _y: number, _radius: number, _color: string) {
@@ -141,24 +162,55 @@ namespace L10_Animation {
             tree.draw();
         }
 
-        for (let i: number = 0; i < 10; i++) {
-            let tree: Trees = trees[i];
-            let child: Childs = childs[i];
+        for (let i: number = 0; i < 5; i++) {
+           // let tree: Trees = trees[i];
+            let child: ChildDown = childDown[i];
             //       console.log(child.x + "    "  + child.y);
 
             //  console.log(child.x + "c.x  " + child.y + "c.y  ");
 
-            let childVektor: number = (child.x * child.x + child.y * child.y);
-            let treeVektor: number = (tree.x * tree.x + tree.y * tree.y);
-            let vektor: number = childVektor - treeVektor;
-            console.log();
-            console.log(childVektor + "child  " + treeVektor + " tree ");
-            if (vektor < 500 && vektor > -500) {
-                console.log("Vektor hit");
-                child.drawBlood();
-            }
+//            let childVektor: number = (child.x * child.x + child.y * child.y);
+//            let treeVektor: number = (tree.x * tree.x + tree.y * tree.y);
+//            let vektor: number = childVektor - treeVektor;
+//            console.log();
+//            console.log(childVektor + "child  " + treeVektor + " tree ");
+//            if (vektor < 500 && vektor > -500) {
+//                console.log("Vektor hit");
+//                child.drawBlood();
+//            }
 
 
+
+            //            if (crc2.isPointInPath(child.x + child.y, tree.x + tree.y)) {
+            //                console.log("COllsion");
+            //                //                // alert("Collision");
+            //                //                //      child.drawBloo      
+            //                //
+            //            }
+
+            //            if (child.x == tree.x && child.y == tree.y) {
+            //                            console.log("Collision");
+            //                           // child.drawBlood();
+            //                        }
+            child.draw();
+            child.move();
+        }
+        for (let i: number = 0; i < 5; i++) {
+        //    let tree: Trees = trees[i];
+            let child: ChildUp = childUp[i];
+            //       console.log(child.x + "    "  + child.y);
+
+            //  console.log(child.x + "c.x  " + child.y + "c.y  ");
+
+//            let childVektor: number = (child.x * child.x + child.y * child.y);
+//            let treeVektor: number = (tree.x * tree.x + tree.y * tree.y);
+//            let vektor: number = childVektor - treeVektor;
+//            console.log();
+//            console.log(childVektor + "child  " + treeVektor + " tree ");
+//            if (vektor < 500 && vektor > -500) {
+//                console.log("Vektor hit");
+//                child.drawBlood();
+//            }
 
             //            if (crc2.isPointInPath(child.x + child.y, tree.x + tree.y)) {
             //                console.log("COllsion");
