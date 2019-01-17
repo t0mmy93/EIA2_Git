@@ -192,8 +192,9 @@ namespace L10_Animation {
             //                            console.log("Collision");
             //                           // child.drawBlood();
             //                        }
-            child.draw();
+         
             child.move();
+               child.draw();
         }
         for (let i: number = 0; i < 5; i++) {
         //    let tree: Trees = trees[i];
@@ -223,8 +224,9 @@ namespace L10_Animation {
             //                            console.log("Collision");
             //                           // child.drawBlood();
             //                        }
-            child.draw();
+          
             child.move();
+              child.draw();
         }
 
 
