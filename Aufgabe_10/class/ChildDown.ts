@@ -66,7 +66,7 @@ namespace L10_Animation {
 
             this.x += 6;
             this.y += 2;
-            this.draw();
+        //    this.draw();
 
             //            if (crc2.isPointInPath(Trees., Trees.This.y)){
             //                  //            }
