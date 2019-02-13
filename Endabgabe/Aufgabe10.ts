@@ -152,6 +152,7 @@ namespace L10_Animation {
         for (let i: number = 0; i < 5; i++) {
             let snowball: SnowBall = snowBall[i];
             snowball.draw();
+            console.log(snowBall[i]);
 
         }
     }

@@ -107,6 +107,7 @@ var L10_Animation;
         for (let i = 0; i < 5; i++) {
             let snowball = snowBall[i];
             snowball.draw();
+            console.log(snowBall[i]);
         }
     }
     function update() {
