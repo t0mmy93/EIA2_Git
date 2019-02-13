@@ -3,7 +3,7 @@ namespace L10_Animation {
     window.addEventListener("click", mousePosition);
     export let crc2: CanvasRenderingContext2D;
 
-    //    let c = document.getElementById("Canvas");
+
 
     let fps: number = 25;
     let snowBall: SnowBall[] = [];
@@ -12,8 +12,7 @@ namespace L10_Animation {
     let childDown: ChildDown[] = [];
     let childUp: ChildUp[] = [];
     let imgData: ImageData;
-    let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
-    crc2 = canvas.getContext("2d");
+
 
     function init(_event: Event): void {
         console.log("Canvas started");

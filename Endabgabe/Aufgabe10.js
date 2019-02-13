@@ -2,7 +2,6 @@ var L10_Animation;
 (function (L10_Animation) {
     window.addEventListener("load", init);
     window.addEventListener("click", mousePosition);
-    //    let c = document.getElementById("Canvas");
     let fps = 25;
     let snowBall = [];
     let snowflakes = [];
@@ -10,8 +9,6 @@ var L10_Animation;
     let childDown = [];
     let childUp = [];
     let imgData;
-    let canvas = document.getElementsByTagName("canvas")[0];
-    L10_Animation.crc2 = canvas.getContext("2d");
     function init(_event) {
         console.log("Canvas started");
         let canvas = document.getElementsByTagName("canvas")[0];
